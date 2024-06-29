@@ -1,7 +1,7 @@
 import React from "react";
 import FundingForm from "./components/FundingForm";
 
-export default function CreateFunding() {
+export default function CreateFundingPage() {
   return (
     <div>
       <h1>펀딩 생성 페이지</h1>

@@ -1,15 +1,13 @@
-// OngoingFunding.tsx
-
 import React from "react";
 
-interface OngoingFundingProps {
+interface DetailFundingProps {
   organizer: string;
   productName: string;
   progress: number;
   imageSrc: string;
 }
 
-const OngoingFunding: React.FC<OngoingFundingProps> = ({
+const DetailFunding: React.FC<DetailFundingProps> = ({
   organizer,
   productName,
   progress,
@@ -39,4 +37,4 @@ const OngoingFunding: React.FC<OngoingFundingProps> = ({
   );
 };
 
-export default OngoingFunding;
+export default DetailFunding;

@@ -1,6 +1,6 @@
-import OngoingFunding from "./OngoingFunding";
+import DetailFunding from "./DetailFunding";
 
-export default function OngoingFundings() {
+export default function DetailFundingPage() {
   const fundingData = {
     organizer: "홍길동",
     productName: "닌텐도 스위치를 내게로",
@@ -12,7 +12,7 @@ export default function OngoingFundings() {
   return (
     <div>
       <h1>펀딩 진행 페이지</h1>
-      <OngoingFunding
+      <DetailFunding
         organizer={fundingData.organizer}
         productName={fundingData.productName}
         progress={fundingData.progress}
