@@ -1,8 +1,10 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState,useNavigate } from "react";
 import axios from 'axios';
 
 
 export default function register() {
+
+    const navigate = useNavigate();
 
     function check() {
         console.log(user);
@@ -50,6 +52,7 @@ export default function register() {
             .then((res)=> {
                 console.log(process.env.Back_URL)
                 console.log(res)
+                navigator(-1)
             })
         } catch (error) {
             console.error(error);
