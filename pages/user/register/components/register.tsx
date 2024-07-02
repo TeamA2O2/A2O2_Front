@@ -6,10 +6,6 @@ export default function register() {
 
     const navigate = useNavigate();
 
-    function check() {
-        console.log(user);
-    }
-
     const [user,setUser]=useState({
         // name:"",
         // id:"",
@@ -19,6 +15,12 @@ export default function register() {
     });
 
     const [id,setId] = useState();
+
+    const [pw,checkpw]= useState(false);
+
+    function check() {
+        console.log(user);
+    }
 
     const InputData = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUser((prev) => {
@@ -42,6 +44,12 @@ export default function register() {
             alert(error)
         }
 
+    }
+
+    const CheckPassword = async (event: React.ChangeEvent<HTMLInputElement>) =>{
+        if(user.password===event.target.value){
+            checkpw(true);
+        }
     }
 
     const RegisterUser = async () => {
@@ -81,7 +89,8 @@ export default function register() {
                 
                 <div>
                 <label>비번확인</label>
-                <input type="string" />
+                <input onChange={CheckPassword} name="passworkChek" />
+                <div>{pw ? <p>비밀번호가 일치합니다</p>:<p>비밀번호가 일치하지 않습니다 </p>}</div>
                 </div>
                 
                 <div>
