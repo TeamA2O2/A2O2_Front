@@ -16,12 +16,30 @@ export default function register() {
         // email:""
     });
 
+    const [id,setId] = useState();
+
     const InputData = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUser((prev) => {
             return {
                 ...prev,[event.target.name]:event.target.value
             };
         });
+    }
+
+    const DuplicateId = async () => {
+        const data = id;
+        
+        try{
+            await axios.post(`https://ao-rztme.run.goorm.site/user/checkDuplicatedId`,{data})
+            .then((res)=> {
+                console.log(process.env.Back_URL)
+                console.log(res)
+            })
+        } catch (error) {
+            console.error(error);
+            alert(error)
+        }
+
     }
 
     const RegisterUser = async () => {
@@ -49,7 +67,8 @@ export default function register() {
                 </div>
                 <div>
                 <label>아이디</label>
-                <input onChange={InputData} name="id" placeholder="아이디" />
+                <input onChange={InputData,setId} name="id" placeholder="아이디" />
+                <button onClick={DuplicateId}>중복확인</button>
                 </div>
                 
                 <div>
