@@ -75,12 +75,16 @@ export default function register() {
 
 
     return (
-        <div>
-            <h1>회원가입</h1>
+        <div className="m-2 p-2">
+            <h2 className="text-xl">회원가입</h2>
+            <p>서비스 이용을 위해 아래 정보를 입력해주세요</p>
             <div>
             <div>
                 <label>이름</label>
-                <input onChange={InputData} name="name" placeholder="이름" />
+                <input 
+                onChange={InputData} name="name" placeholder="이름" 
+                className="border-2 border-green-500"
+                />
                 </div>
                 <div>
                 <label>아이디</label>
