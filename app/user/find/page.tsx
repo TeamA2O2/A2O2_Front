@@ -1,4 +1,6 @@
-import { Input } from "postcss";
+"use client"
+import { useState } from "react";
+import axios from "axios";
 
 export default function find() {
 
@@ -20,7 +22,6 @@ export default function find() {
             .then((res)=> {
                 console.log(process.env.Back_URL)
                 console.log(res)
-                navigator(-1)
             })
         } catch (error) {
             console.error(error);
@@ -35,7 +36,6 @@ export default function find() {
             .then((res)=> {
                 console.log(process.env.Back_URL)
                 console.log(res)
-                navigator(-1)
             })
         } catch (error) {
             console.error(error);

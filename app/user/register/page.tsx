@@ -1,17 +1,17 @@
-import { useCallback, useState,useNavigate } from "react";
+"use client"
+
+import { useCallback, useState } from "react";
 import axios from 'axios';
 
 
 export default function register() {
 
-    const navigate = useNavigate();
-
     const [user,setUser]=useState({
-        // name:"",
-        // id:"",
-        // password:"",
-        // phone:"",
-        // email:""
+        name:"",
+        id:"",
+        password:"",
+        phone:"",
+        email:""
     });
 
     const [id,setId] = useState();
@@ -36,6 +36,9 @@ export default function register() {
         try{
             await axios.post(`https://ao-rztme.run.goorm.site/user/checkDuplicatedId`,{data})
             .then((res)=> {
+                if(res.status===200){
+                    alert("사용가능한 ID입니다")
+                }
                 console.log(process.env.Back_URL)
                 console.log(res)
             })
@@ -50,6 +53,9 @@ export default function register() {
         if(user.password===event.target.value){
             checkpw(true);
         }
+        else{
+            checkpw(false)
+        }
     }
 
     const RegisterUser = async () => {
@@ -60,7 +66,7 @@ export default function register() {
             .then((res)=> {
                 console.log(process.env.Back_URL)
                 console.log(res)
-                navigator(-1)
+
             })
         } catch (error) {
             console.error(error);
@@ -78,7 +84,7 @@ export default function register() {
                 </div>
                 <div>
                 <label>아이디</label>
-                <input onChange={InputData,setId} name="id" placeholder="아이디" />
+                <input onChange={()=>{InputData,setId}} name="id" placeholder="아이디" />
                 <button onClick={DuplicateId}>중복확인</button>
                 </div>
                 
