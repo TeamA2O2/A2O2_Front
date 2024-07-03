@@ -20,6 +20,7 @@ export default function register() {
 
     function check() {
         console.log(user);
+        
     }
 
     const InputData = (event: React.ChangeEvent<HTMLInputElement>) => {
