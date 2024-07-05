@@ -5,13 +5,9 @@ import axios from "axios";
 
 export default function login() {
 
-    function check() {
-        console.log(user);
-    }
-
     const [user,setUser]=useState({
         id:"",
-        password:""
+        password: ""
     });
 
     const InputData = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,7 +45,7 @@ export default function login() {
                 <input onChange={InputData} name="password" />
                 </div>
             </div>
-            <button onClick={LoginUser}>아이디비번</button>
+            <button onClick={LoginUser}>로그인</button>
         </div>
     )
 }

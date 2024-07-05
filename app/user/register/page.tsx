@@ -14,9 +14,7 @@ export default function register() {
         email: ""
     });
 
-    const [id, setId] = useState();
-
-    const [pw, checkpw] = useState(false);
+    const [pw, checkPw] = useState(false);
 
     function check() {
         console.log(user);
@@ -32,7 +30,7 @@ export default function register() {
     }
 
     const DuplicateId = async () => {
-        const data = id;
+        const data = user.id;
 
         try {
             await axios.post(`https://ao-rztme.run.goorm.site/user/checkDuplicatedId`, { data })
@@ -40,7 +38,6 @@ export default function register() {
                     if (res.status === 200) {
                         alert("사용가능한 ID입니다")
                     }
-                    console.log(process.env.Back_URL)
                     console.log(res)
                 })
         } catch (error) {
@@ -52,10 +49,10 @@ export default function register() {
 
     const CheckPassword = async (event: React.ChangeEvent<HTMLInputElement>) => {
         if (user.password === event.target.value) {
-            checkpw(true);
+            checkPw(true);
         }
         else {
-            checkpw(false)
+            checkPw(false)
         }
     }
 
@@ -89,7 +86,7 @@ export default function register() {
 
                 <div>
                     <label>아이디</label>
-                    <input onChange={() => { InputData, setId }} name="id" placeholder="아이디"
+                    <input onChange={InputData} name="id" placeholder="아이디"
                         className="border-b-2 border-lime-200" />
                     <button onClick={DuplicateId}>중복확인</button>
                 </div>

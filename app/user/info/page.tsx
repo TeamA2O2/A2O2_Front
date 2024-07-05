@@ -4,30 +4,37 @@ import { useState } from "react";
 
 export default function info() {
 
-    const [list, getList] = useState([{
-        id:1
-    },{id:2}]);
 
-    const [user,setUser] = useState({});
+    const [list, getList] = useState([
+        { id: 1 },
+        { id: 2 },
+    ]);
 
-    const getFundinglist = async () => {
+    const [user, setUser] = useState({});
+
+    const getUserFundingList = async () => {
         try {
-            await fetch(`https://ao-rztme.run.goorm.site/user/info`)
+            await fetch(`https://ao-rztme.run.goorm.site/user/info/list`)
                 .then(async (res) => {
-                    const data = res.data.list;
+                    const data = res.data;
+                    await setUser(data);
+                    await fetch(`https://ao-rztme.run.goorm.site/user/info/list` + data.funding)
+                        .then(async (res) => {
 
-                    await getList(data);
-
+                            const list = res.data;
+                            await getList(data);
+                            ;
+                        })
                 })
-
-        } catch (error) {
-
+        }
+        catch (error) {
+            console.log(error)
         }
     }
 
     return (
         <div>
-            <h1>이름 </h1>
+            <h1>이름</h1>
             <div>이미지</div>
             <div>
                 {
