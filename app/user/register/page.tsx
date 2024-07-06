@@ -16,11 +16,6 @@ export default function register() {
 
     const [pw, checkPw] = useState(false);
 
-    function check() {
-        console.log(user);
-        
-    }
-
     const InputData = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUser((prev) => {
             return {
@@ -29,6 +24,7 @@ export default function register() {
         });
     }
 
+    //ID 중복 확인
     const DuplicateId = async () => {
         const data = user.id;
 
@@ -47,6 +43,7 @@ export default function register() {
 
     }
 
+    //비밀번호 일치 확인
     const CheckPassword = async (event: React.ChangeEvent<HTMLInputElement>) => {
         if (user.password === event.target.value) {
             checkPw(true);
@@ -56,15 +53,17 @@ export default function register() {
         }
     }
 
+    //회원가입
     const RegisterUser = async () => {
         const data = user;
 
         try {
             await axios.post(`https://ao-rztme.run.goorm.site/user/signUp`, { data })
                 .then((res) => {
-                    console.log(process.env.Back_URL)
+                    if(res.status===200){
+                        alert("회원가입완료")
+                    }
                     console.log(res)
-
                 })
         } catch (error) {
             console.error(error);
@@ -80,39 +79,40 @@ export default function register() {
                 <div>
                     <label>이름</label>
                     <input
-                        onChange={InputData} name="name" placeholder="이름"
+                        onChange={InputData} name="name" placeholder="이름" required
                         className="border-b-2 border-lime-200" />
                 </div>
 
+                //아이디 확인 후 변경안되게 하기
                 <div>
                     <label>아이디</label>
-                    <input onChange={InputData} name="id" placeholder="아이디"
+                    <input onChange={InputData} name="id" placeholder="아이디" required
                         className="border-b-2 border-lime-200" />
                     <button onClick={DuplicateId}>중복확인</button>
                 </div>
 
                 <div>
                     <label>비번</label>
-                    <input onChange={InputData} name="password" 
+                    <input onChange={InputData} name="password" required
                     className="border-b-2 border-lime-200"/>
                 </div>
 
                 <div>
                     <label>비번확인</label>
-                    <input onChange={CheckPassword} name="passworkChek" 
+                    <input onChange={CheckPassword} name="passworkChek" required
                     className="border-b-2 border-lime-200"/>
                     <div>{pw ? <p className="text-sm">비밀번호가 일치합니다</p> : <p className="text-sm">비밀번호가 일치하지 않습니다 </p>}</div>
                 </div>
 
                 <div>
                     <label>전화번호</label>
-                    <input onChange={InputData} name="phone" 
+                    <input onChange={InputData} name="phone" required
                     className="border-b-2 border-lime-200"/>
                 </div>
 
                 <div>
                     <label>이메일</label>
-                    <input onChange={InputData} name="email" 
+                    <input onChange={InputData} name="email" required
                     className="border-b-2 border-lime-200"/>
                 </div>
 

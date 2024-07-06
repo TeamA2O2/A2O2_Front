@@ -24,7 +24,9 @@ export default function login() {
         try{
             await axios.post(`https://ao-rztme.run.goorm.site/user/logIn`,{data})
             .then((res)=> {
-                console.log(process.env.Back_URL)
+                if(res.status===200){
+                    alert("로그인완료")
+                }
                 console.log(res)
             })
         } catch (error) {

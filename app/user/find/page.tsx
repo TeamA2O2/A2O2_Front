@@ -34,7 +34,7 @@ export default function find() {
         }
     }
 
-    //비번 찾기 -> 재설정할것인지
+    //비번 찾기 -> 재설정할것인지 결정
     const FindPassword = async () => {
         const data = user;
 
@@ -53,19 +53,23 @@ export default function find() {
 
     return (
         <div>
-            <h1>아이디비번찾기</h1>
+            <h1>아이디/비번찾기</h1>
             <div>
-                <label>아이디찾기</label>
+                <label className="m-2">아이디찾기</label>
                 <p>
                     <input onChange={InputData} name="email" />
                     <button onClick={FindId}>찾기</button>
                 </p>
             </div>
             <div>
-                <label>비번찾기</label>
+                <label className="m-2">비번찾기</label>
                 <p>
-                    <input onChange={InputData} name="email" />
-                    <input onChange={InputData} name="id" />
+                    <div>
+                        <input onChange={InputData} name="email" />
+                    </div>
+                    <div>
+                        <input onChange={InputData} name="id" />
+                    </div>
                     <button onClick={FindPassword}>찾기</button>
                 </p>
             </div>
