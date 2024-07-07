@@ -8,6 +8,7 @@
   flex-shrink: 0;
   color: #262626;
   font-family: "NanumSquareRound", sans-serif;
+  margin: 0;
 }
 .content p {
   width: 371.057px;
@@ -31,14 +32,14 @@
   margin: 0;
 }
 .img {
-  width: 1035px;
-  height: 965px;
+  width: 100%;
+  height: auto;
   flex-shrink: 0;
   border-radius: 20px;
 }
 .button {
-  width: 1035px;
-  height: 179px;
+  width: 100%;
+  height: auto;
   flex-shrink: 0;
   padding: 0.5rem 1rem;
   background-color: #9ac87f;

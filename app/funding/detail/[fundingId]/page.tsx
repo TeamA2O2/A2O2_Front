@@ -2,7 +2,7 @@ import DetailFunding from "@/containers/funding/DetailContainer";
 
 export default function FundingDetailPage({}) {
   return (
-    <div>
+    <div style={{ maxWidth: "680px" }}>
       <DetailFunding />
     </div>
   );
