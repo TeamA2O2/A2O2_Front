@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import FundingForm from "@/components/FundingForm";
 import axios from "axios";
@@ -20,6 +19,7 @@ const FundingCreateContainer = () => {
     price: "가격을 입력하세요",
     deadline: "마감 날짜를 선택하세요",
     userId: "유저 ID를 입력하세요",
+    image: null,
   });
 
   const [isEdit, setIsEdit] = useState(false);
@@ -37,9 +37,9 @@ const FundingCreateContainer = () => {
           const response = await axios.get(
             `${process.env.NEXT_PUBLIC_API_URL}/funding/view?id=${fid}`
           );
-
+          console.log(response.data);
           if (response.status === 200) {
-            const data = response.data[0];
+            const data = response.data;
 
             setFormData({
               title: data.title,
@@ -47,7 +47,7 @@ const FundingCreateContainer = () => {
               price: data.price,
               deadline: data.deadline,
               userId: data.userId,
-              image: null,
+              image: data.image,
             });
 
             setPlaceholders({
@@ -56,6 +56,7 @@ const FundingCreateContainer = () => {
               price: data.price.toString(),
               deadline: data.deadline,
               userId: data.userId,
+              image: data.image,
             });
 
             setIsEdit(true);
@@ -79,45 +80,46 @@ const FundingCreateContainer = () => {
     });
   };
 
-  const handleFileChange = (file: File, isValid: boolean) => {
-    if (isValid) {
-      setFormData({
-        ...formData,
-        //image: file,
-        image: null,
-      });
-    } else {
-      console.error("선택된 파일이 유효하지 않습니다.");
-    }
+  const handleFileChange = (file: File) => {
+    setFormData({
+      ...formData,
+      image: file,
+    });
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const data = {
-      ...(fid ? { id: Number(fid) } : {}),
-      ...formData,
-    };
 
-    console.log(data);
+    const data = new FormData();
+    data.append("title", formData.title);
+    data.append("item", formData.item);
+    data.append("price", formData.price.toString());
+    data.append("deadline", formData.deadline);
+    data.append("userId", formData.userId);
+    if (formData.image) {
+      data.append("image", formData.image);
+    }
+
+    console.log("data:", { data });
     try {
       const response = isEdit
         ? await axios.post(
             `${process.env.NEXT_PUBLIC_API_URL}/funding/update`,
-            { data }
-            // {
-            //   headers: {
-            //     "Content-Type": "multipart/form-data",
-            //   },
-            // }
+            data,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
           )
         : await axios.post(
             `${process.env.NEXT_PUBLIC_API_URL}/funding/create`,
-            { data }
-            // {
-            //   headers: {
-            //     "Content-Type": "multipart/form-data",
-            //   },
-            // }
+            data,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
           );
 
       if (response.status === 200 || response.status === 201) {

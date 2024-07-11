@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function info() {
   const router = useRouter();
 
-  const [list, getList] = useState([{ id: 14 }, { id: 5 }]);
+  const [list, getList] = useState([{ id: 38 }, { id: 39 }]);
 
   const [user, setUser] = useState({});
 

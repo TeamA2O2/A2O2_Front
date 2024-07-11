@@ -1,6 +1,5 @@
-"use client";
 import React, { ChangeEvent, FormEvent } from "react";
-import ImageUpload from "@/components/file/ImageUpload";
+import ImageUpload from "@/components/upload/ImageUpload";
 
 interface FundingFormProps {
   formData: {
@@ -12,13 +11,14 @@ interface FundingFormProps {
     image: File | null;
   };
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onFileChange: (file: File, isValid: boolean) => void; // Adjusted type
+  onFileChange: (file: File) => void;
   onSubmit: (e: FormEvent) => void;
   placeholders: {
     title: string;
     userId: string;
     item: string;
     price: string;
+    image: string | null;
     deadline: string;
   };
 }
@@ -39,12 +39,8 @@ const FundingForm: React.FC<FundingFormProps> = ({
     return `${year}-${month}-${day}`;
   };
 
-  const handleImageInput = (id: string, file: File, isValid: boolean) => {
-    if (isValid) {
-      onFileChange(file, isValid);
-    } else {
-      console.error("선택된 파일이 유효하지 않습니다.");
-    }
+  const handleImageInput = (id: string, file: File) => {
+    onFileChange(file);
   };
 
   return (
@@ -106,7 +102,11 @@ const FundingForm: React.FC<FundingFormProps> = ({
       </div>
       <div>
         <label>사진 업로드</label>
-        <ImageUpload id="image" onInput={handleImageInput} />
+        <ImageUpload
+          id="image"
+          onInput={handleImageInput}
+          placeholder={placeholders.image}
+        />
       </div>
       <button type="submit">게시하기</button>
     </form>

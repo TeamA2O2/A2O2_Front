@@ -11,7 +11,7 @@ interface DetailFundingProps {
   title: string;
   item: string;
   money: number;
-  image: string;
+  image?: string;
   createdAt: string;
   deadline: string;
   price: number;
@@ -40,8 +40,8 @@ const FundingDetailContainer = () => {
           `${process.env.NEXT_PUBLIC_API_URL}/funding/view?id=${fid}`
         );
         if (response.status === 200) {
-          console.log(response.data[0]);
-          setFundingData(response.data[0]);
+          console.log(response.data);
+          setFundingData(response.data);
           console.log("펀딩 디테일 불러오기 성공");
         } else if (response.status === 204) {
           console.log("사용자가 생성한 펀딩이 없는 경우");
