@@ -57,44 +57,6 @@ const FundingDetailContainer = () => {
     }
   }, [fid]);
 
-  const handleEdit = async () => {
-    try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/funding/update`,
-        {
-          id: fid,
-          ...fundingData,
-        }
-      );
-      if (response.status === 200) {
-        console.log("펀딩 수정 성공");
-        setFundingData(response.data);
-      } else {
-        console.log("펀딩 수정 실패", response);
-      }
-    } catch (error) {
-      console.error("Error updating funding:", error);
-    }
-  };
-
-  const handleDelete = async () => {
-    // 삭제 기능 구현
-    try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/funding/delete`,
-        {
-          data: { id: fid }, // 삭제할 펀딩의 ID를 요청 바디에 포함
-        }
-      );
-      if (response.status === 200) {
-        console.log("펀딩 삭제 성공");
-      } else {
-        console.log("펀딩 삭제 실패");
-      }
-    } catch (error) {
-      console.error("Error deleting funding:", error);
-    }
-  };
   const { userId, title, item, money, image, createdAt, deadline, price } =
     fundingData;
 
@@ -130,11 +92,6 @@ const FundingDetailContainer = () => {
           </div>
           <div>
             <button>펀딩하기 (결제)</button>
-          </div>
-
-          <div>
-            <button onClick={handleEdit}>펀딩 수정</button>
-            <button onClick={handleDelete}>펀딩 삭제</button>
           </div>
         </div>
       </div>
