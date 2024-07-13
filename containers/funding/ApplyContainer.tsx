@@ -1,20 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const FundingApplicationContainer = () => {
-  const [formData, setFormData] = useState({
-    amount: 0,
+  const [fid, setFid] = useState<string | null>(null);
+  const [data, setData] = useState({
+    id: "",
+    price: 0,
     applicantName: "",
   });
 
+  useEffect(() => {
+    const urlParams = new URL(window.location.href);
+    const fid = urlParams.searchParams.get("id");
+    if (fid) {
+      setFid(fid);
+      setData((prevData) => ({
+        ...prevData,
+        id: fid,
+      }));
+    }
+  }, []);
+
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // 기본 제출 동작 방지
-
+    console.log(data);
     try {
+      console.log(data);
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/apply`,
-        formData
+        `${process.env.NEXT_PUBLIC_API_URL}/funding/participate`,
+        { data }
       );
       console.log("펀딩 신청 성공:", response.data);
     } catch (error) {
@@ -24,8 +39,8 @@ const FundingApplicationContainer = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setData({
+      ...data,
       [name]: value,
     });
   };
@@ -37,8 +52,8 @@ const FundingApplicationContainer = () => {
           금액:
           <input
             type="number"
-            name="amount"
-            value={formData.amount}
+            name="price"
+            value={data.price}
             onChange={handleChange}
           />
         </label>
@@ -48,7 +63,7 @@ const FundingApplicationContainer = () => {
           <input
             type="text"
             name="applicantName"
-            value={formData.applicantName}
+            value={data.applicantName}
             onChange={handleChange}
           />
         </label>

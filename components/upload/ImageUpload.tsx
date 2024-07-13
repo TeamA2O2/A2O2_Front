@@ -4,7 +4,7 @@ import "./ImageUpload.css";
 interface ImageUploadProps {
   id: string;
   onInput: (id: string, file: File) => void;
-  placeholder: string;
+  placeholder?: string | null;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
@@ -53,9 +53,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       />
       <div className="image-upload">
         <div className="image-upload__preview">
-          {placeholder && <img src={placeholder} alt="Preview" />}{" "}
-          {/* placeholder가 존재할 때만 이미지를 보여줌 */}
-          {!placeholder && <p>이미지를 선택해주세요.</p>}
+          {previewUrl && <img src={previewUrl} alt="preview" />}
+          {!previewUrl && <p>{placeholder || "이미지를 선택해주세요."}</p>}
         </div>
         <button type="button" onClick={pickImageHandler}>
           PICK IMAGE

@@ -28,7 +28,7 @@ const FundingCreateContainer = () => {
   useEffect(() => {
     const fetchFundingData = async () => {
       const urlParams = new URL(window.location.href);
-      const fid = urlParams.searchParams.get("fid");
+      const fid = urlParams.searchParams.get("id");
       if (fid) {
         setFid(fid);
       }
@@ -42,12 +42,13 @@ const FundingCreateContainer = () => {
             const data = response.data;
 
             setFormData({
+              ...setFormData,
               title: data.title,
               item: data.item,
               price: data.price,
               deadline: data.deadline,
               userId: data.userId,
-              image: data.image,
+              image: data.image || null,
             });
 
             setPlaceholders({
@@ -56,7 +57,7 @@ const FundingCreateContainer = () => {
               price: data.price.toString(),
               deadline: data.deadline,
               userId: data.userId,
-              image: data.image,
+              image: data.image || null,
             });
 
             setIsEdit(true);
@@ -81,6 +82,7 @@ const FundingCreateContainer = () => {
   };
 
   const handleFileChange = (file: File) => {
+    console.log("파일 변경");
     setFormData({
       ...formData,
       image: file,
@@ -91,6 +93,9 @@ const FundingCreateContainer = () => {
     e.preventDefault();
 
     const data = new FormData();
+    if (isEdit) {
+      data.append("id", fid!); // 수정할 때만 id 추가
+    }
     data.append("title", formData.title);
     data.append("item", formData.item);
     data.append("price", formData.price.toString());
@@ -100,7 +105,7 @@ const FundingCreateContainer = () => {
       data.append("image", formData.image);
     }
 
-    console.log("data:", { data });
+    console.log({ data });
     try {
       const response = isEdit
         ? await axios.post(
@@ -130,6 +135,9 @@ const FundingCreateContainer = () => {
       }
     } catch (error) {
       console.error("Error processing funding:", error);
+      data.forEach((key, value) => {
+        console.log(key, value);
+      });
     }
   };
 

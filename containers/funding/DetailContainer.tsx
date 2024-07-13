@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import PercentageCalculator from "@/components/PercentageCalculator";
-import { error } from "console";
 
 interface DetailFundingProps {
   userId: string;
@@ -20,6 +20,8 @@ interface DetailFundingProps {
 const FundingDetailContainer = () => {
   const path = usePathname();
   const fid = path.split("/").pop();
+  const router = useRouter();
+
   console.log("fid:", fid);
 
   const [fundingData, setFundingData] = useState<DetailFundingProps>({
@@ -57,6 +59,10 @@ const FundingDetailContainer = () => {
     }
   }, [fid]);
 
+  const updateFunding = (id: string | undefined) => {
+    router.push(`/funding/apply?id=${id}`);
+  };
+
   const { userId, title, item, money, image, createdAt, deadline, price } =
     fundingData;
 
@@ -91,7 +97,7 @@ const FundingDetailContainer = () => {
             <div>마감일: {new Date(deadline).toLocaleDateString()}</div>
           </div>
           <div>
-            <button>펀딩하기 (결제)</button>
+            <button onClick={() => updateFunding(fid)}>펀딩하기 (결제)</button>
           </div>
         </div>
       </div>

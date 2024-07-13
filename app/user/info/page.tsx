@@ -48,7 +48,7 @@ export default function info() {
 
   //펀딩 수정페이지로 라우팅
   const updateFunding = (id: number) => {
-    router.push(`/funding/create?fid=${id}`);
+    router.push(`/funding/create?id=${id}`);
   };
 
   return (
