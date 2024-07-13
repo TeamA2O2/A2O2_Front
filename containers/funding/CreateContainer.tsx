@@ -2,23 +2,24 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import FundingForm from "@/components/FundingForm";
 import axios from "axios";
+import styles from "./CreateContainer.module.css";
 
 const FundingCreateContainer = () => {
   const [formData, setFormData] = useState({
     title: "",
     item: "",
-    price: 0,
+    price: "",
     deadline: "",
     userId: "",
     image: null as File | null,
   });
 
   const [placeholders, setPlaceholders] = useState({
-    title: "펀딩 제목을 입력하세요",
-    item: "상품명을 입력하세요",
-    price: "가격을 입력하세요",
-    deadline: "마감 날짜를 선택하세요",
-    userId: "유저 ID를 입력하세요",
+    title: "펀딩 제목을 입력해주세요.",
+    item: "상품명을 입력해주세요",
+    price: "가격을 입력해주세요",
+    deadline: "마감 기한을 입력해주세요. (예시: 2024-01-01)",
+    userId: "유저 ID를 입력해주세요.",
     image: null,
   });
 
@@ -128,6 +129,7 @@ const FundingCreateContainer = () => {
           );
 
       if (response.status === 200 || response.status === 201) {
+        alert(isEdit ? "펀딩 수정 성공" : "펀딩 생성 성공");
         console.log(
           isEdit ? "펀딩 수정 성공" : "펀딩 생성 성공",
           response.data
@@ -142,7 +144,9 @@ const FundingCreateContainer = () => {
   };
 
   return (
-    <div>
+    <div className={styles.content}>
+      <h1>받고 싶은 선물</h1>
+      <p>선물 정보를 입력해주세요.</p>
       <FundingForm
         formData={formData}
         onChange={handleChange}

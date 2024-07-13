@@ -1,9 +1,9 @@
 import React, { useRef, useState, ChangeEvent, useEffect } from "react";
 import "./ImageUpload.css";
-
+import CameraIcon from "@/components/img/camera.svg";
 interface ImageUploadProps {
   id: string;
-  onInput: (id: string, file: File) => void;
+  onInput: (file: File) => void;
   placeholder?: string | null;
 }
 
@@ -16,7 +16,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   const [previewUrl, setPreviewUrl] = useState<string | undefined>();
 
   useEffect(() => {
-    setPreviewUrl(placeholder);
+    setPreviewUrl(placeholder ?? undefined); //Nullish 병합 연산자
   }, [placeholder]);
 
   const pickedHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +34,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     };
     reader.readAsDataURL(file);
 
-    onInput(id, file);
+    onInput(file);
   };
 
   const pickImageHandler = () => {
@@ -51,14 +51,11 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
         accept=".jpg,.png,.jpeg"
         onChange={pickedHandler}
       />
-      <div className="image-upload">
+      <div className="image-upload" onClick={pickImageHandler}>
         <div className="image-upload__preview">
           {previewUrl && <img src={previewUrl} alt="preview" />}
-          {!previewUrl && <p>{placeholder || "이미지를 선택해주세요."}</p>}
+          {!previewUrl && <div>{placeholder || <CameraIcon />}</div>}
         </div>
-        <button type="button" onClick={pickImageHandler}>
-          PICK IMAGE
-        </button>
       </div>
     </div>
   );
