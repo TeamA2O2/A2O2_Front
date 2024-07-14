@@ -2,7 +2,7 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import FundingForm from "@/components/FundingForm";
 import axios from "axios";
-import Modal from "@/components/Modal";
+import Modal from "@/components/modal/Modal";
 
 import styles from "./CreateContainer.module.css";
 
