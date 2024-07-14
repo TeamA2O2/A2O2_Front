@@ -61,7 +61,14 @@ const FundingDetailContainer = () => {
   }, [fid]);
 
   const updateFunding = (id: string | undefined) => {
-    router.push(`/funding/apply?id=${id}`);
+    const queryParams = new URLSearchParams({
+      id: id || "",
+      title: fundingData.title,
+      item: fundingData.item,
+      image: fundingData.image || "",
+    }).toString();
+
+    router.push(`/funding/apply?${queryParams}`);
   };
 
   const { userId, title, item, money, image, createdAt, deadline, price } =

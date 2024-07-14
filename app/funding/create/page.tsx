@@ -3,7 +3,7 @@ import "../../globals.css";
 
 export default function create() {
   return (
-    <div className="container">
+    <div style={{ maxWidth: "680px" }}>
       <CreateFunding />
     </div>
   );

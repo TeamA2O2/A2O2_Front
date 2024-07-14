@@ -2,9 +2,14 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import FundingForm from "@/components/FundingForm";
 import axios from "axios";
+import Modal from "@/components/Modal";
+
 import styles from "./CreateContainer.module.css";
 
 const FundingCreateContainer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+
   const [formData, setFormData] = useState({
     title: "",
     item: "",
@@ -129,11 +134,13 @@ const FundingCreateContainer = () => {
           );
 
       if (response.status === 200 || response.status === 201) {
-        alert(isEdit ? "펀딩 수정 성공" : "펀딩 생성 성공");
-        console.log(
-          isEdit ? "펀딩 수정 성공" : "펀딩 생성 성공",
-          response.data
-        );
+        if (isEdit) {
+          setIsModalOpen(true);
+          setModalMessage("펀딩 수정 성공");
+        } else {
+          setIsModalOpen(true);
+          setModalMessage("펀딩 생성 성공!");
+        }
       }
     } catch (error) {
       console.error("Error processing funding:", error);
@@ -143,18 +150,29 @@ const FundingCreateContainer = () => {
     }
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className={styles.content}>
-      <h1>받고 싶은 선물</h1>
-      <p>선물 정보를 입력해주세요.</p>
-      <FundingForm
-        formData={formData}
-        onChange={handleChange}
-        onFileChange={handleFileChange}
-        onSubmit={handleSubmit}
-        placeholders={placeholders}
+    <>
+      <Modal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        message={modalMessage}
       />
-    </div>
+      <div className={styles.content}>
+        <h1>받고 싶은 선물</h1>
+        <p>선물 정보를 입력해주세요.</p>
+        <FundingForm
+          formData={formData}
+          onChange={handleChange}
+          onFileChange={handleFileChange}
+          onSubmit={handleSubmit}
+          placeholders={placeholders}
+        />
+      </div>
+    </>
   );
 };
 
