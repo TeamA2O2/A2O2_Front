@@ -31,9 +31,10 @@ const FundingApplicationContainer = () => {
         `${process.env.NEXT_PUBLIC_API_URL}/funding/participate`,
         { data }
       );
-      console.log("펀딩 신청 성공:", response.data);
+      console.log("펀딩 참여 성공:", response.data);
+      alert("펀딩 참여 성공");
     } catch (error) {
-      console.error("펀딩 신청 실패:", error);
+      console.error("펀딩 참여 실패:", error);
     }
   };
 
@@ -68,7 +69,9 @@ const FundingApplicationContainer = () => {
           />
         </label>
         <br />
-        <button type="submit">펀딩 신청하기</button>
+        <button type="submit">
+          <p>펀딩 신청하기</p>
+        </button>
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 interface PercentageCalculatorProps {
   productPrice: number;
@@ -20,10 +21,51 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
 
   return (
     <div>
-      <p>
+      {/* <p>
         제품 가격: {productPrice}원, 현재 금액: {currentAmount}W
-      </p>
-      <p>진행률: {percentage}%</p>
+      </p> */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <h1
+          style={{
+            fontFamily: "NanumSquareRound, sans-serif",
+            width: "322.85px",
+            height: "84.922px",
+            flexShrink: 0,
+            margin: 0,
+          }}
+        >
+          {percentage}%
+        </h1>
+        <p
+          style={{
+            width: "242.921px",
+            height: "50.03px",
+            flexShrink: "0",
+            color: "#4A4A4A",
+            fontFamily: "NanumSquareRound, sans-serif",
+            fontWeight: "Light",
+            margin: 0,
+          }}
+        >
+          {currentAmount}원
+        </p>
+      </div>
+      <ProgressBar
+        completed={percentage}
+        bgColor="#9AC87F"
+        height="20px"
+        width="100%"
+        isLabelVisible={false}
+        // labelAlignment="center"
+        // labelColor="#ffffff"
+        // labelSize="16px"
+      />
     </div>
   );
 };
