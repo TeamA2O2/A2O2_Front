@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import PercentageCalculator from "@/components/PercentageCalculator";
-
+import Share from "@/components/img/share.svg";
+import styles from "./DetailContainer.module.css";
 interface DetailFundingProps {
   userId: string;
   title: string;
@@ -67,39 +68,39 @@ const FundingDetailContainer = () => {
     fundingData;
 
   return (
-    <div>
+    <div className={styles.content}>
+      <img className={styles.img} src={image} alt="Gift" />
       <div>
-        <div>
-          <span>주최자: {userId}</span>
+        <div className={styles.mainInfo}>
+          <h1>펀딩 제목 : {title}</h1>
+
+          {/* <p>주최자: {userId}</p> */}
+          <Share className={styles.icon} />
         </div>
-        <div>
-          <span>펀딩 이름: {title}</span>
+        <h3 className={styles.item}>상품명 : {item}</h3>
+
+        <hr></hr>
+        <p>목표 금액 : {price}원</p>
+        <p>생성일 : {new Date(createdAt).toLocaleDateString()}</p>
+        <p>마감일 : {new Date(deadline).toLocaleDateString()}</p>
+        <div className={styles.percent}>
+          <PercentageCalculator productPrice={price} currentAmount={money} />
         </div>
-        <div>
-          <img
-            src={image}
-            alt="Gift"
-            style={{ width: "200px", height: "auto" }}
-          />
-          <div>
-            <span>품목: {item}</span>
-          </div>
-          <div>
-            <PercentageCalculator productPrice={price} currentAmount={money} />
-          </div>
-          <div>
-            <div>펀딩 가격: {price}원</div>
-          </div>
-          <div>
-            <div>생성일: {new Date(createdAt).toLocaleDateString()}</div>
-          </div>
-          <div>
-            <div>마감일: {new Date(deadline).toLocaleDateString()}</div>
-          </div>
-          <div>
-            <button onClick={() => updateFunding(fid)}>펀딩하기 (결제)</button>
-          </div>
-        </div>
+
+        <button onClick={() => updateFunding(fid)} className={styles.button}>
+          <p
+            style={{
+              fontFamily: "NanumSquareRound, sans-serif",
+              width: "173.365px",
+              height: "46.869px",
+              flexShrink: 0,
+              color: "white",
+              fontSize: "20px",
+            }}
+          >
+            펀딩하기
+          </p>
+        </button>
       </div>
     </div>
   );

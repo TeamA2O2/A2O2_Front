@@ -129,7 +129,18 @@ const FundingForm: React.FC<FundingFormProps> = ({
       </div>
       <hr></hr>
       <button type="submit" className={styles.button}>
-        게시하기
+        <p
+          style={{
+            fontFamily: "NanumSquareRound, sans-serif",
+            width: "173.365px",
+            height: "46.869px",
+            flexShrink: 0,
+            color: "white",
+            fontSize: "20px",
+          }}
+        >
+          게시하기
+        </p>
       </button>
     </form>
   );
