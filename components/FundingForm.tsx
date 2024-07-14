@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent } from "react";
 import ImageUpload from "@/components/upload/ImageUpload";
+import styles from "./FundingForm.module.css";
 
 interface FundingFormProps {
   formData: {
@@ -32,6 +33,7 @@ const FundingForm: React.FC<FundingFormProps> = ({
 }) => {
   const formatDate = (isoDate: string): string => {
     const date = new Date(isoDate);
+    if (isNaN(date.getTime())) return "";
     const year = date.getFullYear();
     let month = (1 + date.getMonth()).toString().padStart(2, "0");
     let day = date.getDate().toString().padStart(2, "0");
@@ -39,76 +41,96 @@ const FundingForm: React.FC<FundingFormProps> = ({
     return `${year}-${month}-${day}`;
   };
 
-  const handleImageInput = (id: string, file: File) => {
+  const handleImageInput = (file: File) => {
     onFileChange(file);
   };
 
   return (
     <form onSubmit={onSubmit}>
       <div>
-        <label>유저</label>
-        <input
-          type="text"
-          name="userId"
-          value={formData.userId}
-          onChange={onChange}
-          placeholder={placeholders.userId}
-          required
-        />
-      </div>
-      <div>
-        <label>펀딩 제목</label>
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={onChange}
-          placeholder={placeholders.title}
-          required
-        />
-      </div>
-      <div>
-        <label>상품명</label>
-        <input
-          type="text"
-          name="item"
-          value={formData.item}
-          onChange={onChange}
-          placeholder={placeholders.item}
-          required
-        />
-      </div>
-      <div>
-        <label>가격</label>
-        <input
-          type="number"
-          name="price"
-          value={formData.price}
-          onChange={onChange}
-          placeholder={placeholders.price}
-          required
-        />
-      </div>
-      <div>
-        <label>마감 날짜</label>
-        <input
-          type="date"
-          name="deadline"
-          value={formatDate(formData.deadline)}
-          onChange={onChange}
-          placeholder={placeholders.deadline}
-          required
-        />
-      </div>
-      <div>
-        <label>사진 업로드</label>
         <ImageUpload
           id="image"
           onInput={handleImageInput}
           placeholder={placeholders.image}
         />
       </div>
-      <button type="submit">게시하기</button>
+
+      <div className={styles.input_div}>
+        <p className={styles.title}>유저</p>
+        <input
+          type="text"
+          name="userId"
+          value={formData.userId}
+          onChange={onChange}
+          placeholder={placeholders.userId}
+          className={styles.input}
+          required
+        />
+      </div>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>펀딩명</p>
+        <input
+          type="text"
+          name="title"
+          className={styles.input}
+          value={formData.title}
+          onChange={onChange}
+          placeholder={placeholders.title}
+          required
+        />
+      </div>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>상품명</p>
+        <input
+          type="text"
+          name="item"
+          className={styles.input}
+          value={formData.item}
+          onChange={onChange}
+          placeholder={placeholders.item}
+          required
+        />
+      </div>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>가격</p>
+        <input
+          type="number"
+          name="price"
+          className={styles.input}
+          value={formData.price}
+          onChange={onChange}
+          placeholder={placeholders.price}
+          required
+        />
+      </div>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>마감기한</p>
+        <input
+          type="text"
+          name="deadline"
+          className={styles.input}
+          value={formData.deadline ? formatDate(formData.deadline) : ""}
+          onChange={onChange}
+          onFocus={(e) => {
+            e.target.type = "date";
+          }}
+          onBlur={(e) => {
+            if (!e.target.value) {
+              e.target.type = "text";
+            }
+          }}
+          placeholder={placeholders.deadline}
+          required
+        />
+      </div>
+      <hr></hr>
+      <button type="submit" className={styles.button}>
+        게시하기
+      </button>
     </form>
   );
 };

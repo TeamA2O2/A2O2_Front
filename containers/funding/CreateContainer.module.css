@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.content h1 {
+  width: 645.37px;
+  height: 103.07px;
+  flex-shrink: 0;
+  color: #262626;
+  font-family: "NanumSquareRound", sans-serif;
+}
+.content p {
+  width: 371.057px;
+  height: 32.06px;
+  flex-shrink: 0;
+  color: #4a4a4a;
+  font-family: "NanumSquareRound", sans-serif;
+}
