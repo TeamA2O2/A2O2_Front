@@ -22,7 +22,7 @@ export default function login() {
         const data = user;
 
         try{
-            await axios.post(`https://ao-rztme.run.goorm.site/user/logIn`,{data})
+            await axios.post(`https://ao-rztme.run.goorm.site/user/signIn`,{data})
             .then((res)=> {
                 if(res.status===200){
                     alert("로그인완료")

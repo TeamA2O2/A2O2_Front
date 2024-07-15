@@ -29,7 +29,7 @@ export default function register() {
         const data = user.id;
 
         try {
-            await axios.post(`https://ao-rztme.run.goorm.site/user/checkDuplicatedId`, { data })
+            await axios.get(`https://ao-rztme.run.goorm.site/user/checkDuplicatedId`, { data })
                 .then((res) => {
                     if (res.status === 200) {
                         alert("사용가능한 ID입니다")

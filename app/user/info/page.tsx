@@ -12,15 +12,16 @@ export default function info() {
 
   //info /list 구분해서? 한번에?
   const getUserFundingList = async () => {
+    const data = user;
     try {
-      await fetch(`https://ao-rztme.run.goorm.site/user/info/list`).then(
+      await fetch(`https://ao-rztme.run.goorm.site/user/getUserData`+data).then(
         async (res) => {
           if (res.status === 200) {
             const data = res.data;
             await setUser(data);
             await fetch(
-              `https://ao-rztme.run.goorm.site/user/info/list` + data.funding
-            ).then(async (res) => {
+              `https://ao-rztme.run.goorm.site/finding/viewList` + data)
+              .then(async (res) => {
               const list = res.data;
               await getList(data);
             });
