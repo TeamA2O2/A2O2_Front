@@ -5,6 +5,8 @@ import axios from "axios";
 
 export default function login() {
 
+    // 완료시 로컬스토리지 저장
+
     const [user,setUser]=useState({
         id:"",
         password: ""
@@ -25,7 +27,8 @@ export default function login() {
             await axios.post(`https://ao-rztme.run.goorm.site/user/signIn`,{data})
             .then((res)=> {
                 if(res.status===200){
-                    alert("로그인완료")
+                    alert("로그인완료");
+                    localStorage.setItem("Id",user.id);
                 }
                 console.log(res)
             })

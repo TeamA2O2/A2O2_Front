@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import axios from "axios";
 
 export default function info() {
   const router = useRouter();
@@ -17,13 +18,13 @@ export default function info() {
       await fetch(`https://ao-rztme.run.goorm.site/user/getUserData`+data).then(
         async (res) => {
           if (res.status === 200) {
-            const data = res.data;
+            const data = res;
             await setUser(data);
-            await fetch(
+            await axios.post(
               `https://ao-rztme.run.goorm.site/finding/viewList` + data)
               .then(async (res) => {
-              const list = res.data;
-              await getList(data);
+              const list = res;
+              await getList(list);
             });
           }
         }

@@ -60,7 +60,7 @@ export default function register() {
         try {
             await axios.post(`https://ao-rztme.run.goorm.site/user/signUp`, { data })
                 .then((res) => {
-                    if(res.status===200){
+                    if (res.status === 200) {
                         alert("회원가입완료")
                     }
                     console.log(res)
@@ -72,52 +72,63 @@ export default function register() {
 
 
     return (
-        <div className="m-2 p-2">
-            <h2 className="text-xl">회원가입</h2>
+        <div className="m-auto p-2">
+            <h2 className="text-xl text-green-500">회원가입</h2>
             <p>서비스 이용을 위해 아래 정보를 입력해주세요</p>
             <div>
                 <div>
-                    <label>이름</label>
+                    <label className="text-xl ">이름</label>
+                </div>
+                <div>
                     <input
                         onChange={InputData} name="name" placeholder="이름" required
                         className="border-b-2 border-lime-200" />
                 </div>
 
-                //아이디 확인 후 변경안되게 하기
                 <div>
-                    <label>아이디</label>
+                    <div>
+                        <label className="text-xl ">아이디</label>
+                    </div>
                     <input onChange={InputData} name="id" placeholder="아이디" required
                         className="border-b-2 border-lime-200" />
                     <button onClick={DuplicateId}>중복확인</button>
                 </div>
-
                 <div>
                     <label>비번</label>
+                </div>
+                <div>
                     <input onChange={InputData} name="password" required
-                    className="border-b-2 border-lime-200"/>
+                        className="border-b-2 border-lime-200" />
                 </div>
 
+
                 <div>
-                    <label>비번확인</label>
+                    <label>비번 확인</label>
+                </div>
+                <div>
                     <input onChange={CheckPassword} name="passworkChek" required
-                    className="border-b-2 border-lime-200"/>
+                        className="border-b-2 border-lime-200" />
                     <div>{pw ? <p className="text-sm">비밀번호가 일치합니다</p> : <p className="text-sm">비밀번호가 일치하지 않습니다 </p>}</div>
                 </div>
 
                 <div>
                     <label>전화번호</label>
+                </div>
+                <div>
                     <input onChange={InputData} name="phone" required
-                    className="border-b-2 border-lime-200"/>
+                        className="border-b-2 border-lime-200" />
                 </div>
 
                 <div>
                     <label>이메일</label>
-                    <input onChange={InputData} name="email" required
-                    className="border-b-2 border-lime-200"/>
                 </div>
-
+                <div>
+                    <input onChange={InputData} name="email" required
+                        className="border-b-2 border-lime-200" />
+                </div>
             </div>
-            <button onClick={RegisterUser} ></button>
+
+            <button onClick={RegisterUser} className="m-auto">회원가입</button>
         </div>
     )
 }
