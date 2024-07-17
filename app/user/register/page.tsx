@@ -3,6 +3,7 @@
 import { useCallback, useState } from "react";
 import axios from 'axios';
 
+import styles from "./register.module.css";
 
 export default function register() {
 
@@ -72,17 +73,17 @@ export default function register() {
 
 
     return (
-        <div className="m-auto p-2">
-            <h2 className="text-xl text-green-500">회원가입</h2>
+        <div>
+            <h2 className={styles.input}>회원가입</h2>
             <p>서비스 이용을 위해 아래 정보를 입력해주세요</p>
             <div>
                 <div>
-                    <label className="text-xl ">이름</label>
+                    <label>이름</label>
                 </div>
                 <div>
                     <input
                         onChange={InputData} name="name" placeholder="이름" required
-                        className="border-b-2 border-lime-200" />
+                        className="input" />
                 </div>
 
                 <div>
