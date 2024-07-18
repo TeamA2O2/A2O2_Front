@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import axios from 'axios';
 
 import styles from "./register.module.css";
@@ -71,65 +71,60 @@ export default function register() {
         }
     }
 
-
     return (
         <div>
-            <h2 className={styles.input}>회원가입</h2>
-            <p>서비스 이용을 위해 아래 정보를 입력해주세요</p>
+            <h2 className={styles.text}>회원가입</h2>
+            <p className={styles.description}>서비스 이용을 위해 아래 정보를 입력해주세요</p>
             <div>
                 <div>
-                    <label>이름</label>
+                    <label className={styles.label}>이름</label>
                 </div>
                 <div>
                     <input
-                        onChange={InputData} name="name" placeholder="이름" required
-                        className="input" />
+                        onChange={InputData} name="name" required
+                        className={styles.input} />
                 </div>
 
                 <div>
                     <div>
-                        <label className="text-xl ">아이디</label>
+                        <label className={styles.label}>아이디</label>
                     </div>
-                    <input onChange={InputData} name="id" placeholder="아이디" required
-                        className="border-b-2 border-lime-200" />
-                    <button onClick={DuplicateId}>중복확인</button>
+                    <input onChange={InputData} name="id" required
+                        className={styles.input} />
+                    <button onClick={DuplicateId} className={styles.duplit}>중복확인</button>
                 </div>
                 <div>
-                    <label>비번</label>
+                    <label className={styles.label}>비번</label>
                 </div>
                 <div>
                     <input onChange={InputData} name="password" required
-                        className="border-b-2 border-lime-200" />
+                        className={styles.input} />
                 </div>
-
-
                 <div>
-                    <label>비번 확인</label>
+                    <label className={styles.label}>비번 확인</label>
                 </div>
                 <div>
                     <input onChange={CheckPassword} name="passworkChek" required
-                        className="border-b-2 border-lime-200" />
-                    <div>{pw ? <p className="text-sm">비밀번호가 일치합니다</p> : <p className="text-sm">비밀번호가 일치하지 않습니다 </p>}</div>
+                        className={styles.input} />
+                    <div className={styles.description}>{pw ? <p>비밀번호가 일치합니다</p> : <p className="text-sm">비밀번호가 일치하지 않습니다 </p>}</div>
                 </div>
 
                 <div>
-                    <label>전화번호</label>
+                    <label className={styles.label}>전화번호</label>
                 </div>
                 <div>
                     <input onChange={InputData} name="phone" required
-                        className="border-b-2 border-lime-200" />
+                        className={styles.input} />
                 </div>
-
                 <div>
-                    <label>이메일</label>
+                    <label className={styles.label}>이메일</label>
                 </div>
                 <div>
                     <input onChange={InputData} name="email" required
-                        className="border-b-2 border-lime-200" />
+                        className={styles.input} />
                 </div>
+                <button className={styles.button} onClick={RegisterUser}>회원가입</button>
             </div>
-
-            <button onClick={RegisterUser} className="m-auto">회원가입</button>
         </div>
     )
 }
