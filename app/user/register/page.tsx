@@ -70,7 +70,7 @@ export default function register() {
             console.error(error);
         }
     }
-
+32
     return (
         <div>
             <h2 className={styles.text}>회원가입</h2>
