@@ -1,0 +1,78 @@
+.content {
+  display: flex;
+  flex-direction: column;
+}
+.content h1 {
+  width: 293.26px;
+  height: 107.36px;
+  flex-shrink: 0;
+  color: #262626;
+  font-family: "NanumSquareRound", sans-serif;
+  margin: 0;
+}
+.content p {
+  width: 371.057px;
+  height: 32.06px;
+  flex-shrink: 0;
+  color: #4a4a4a;
+  font-family: "NanumSquareRound", sans-serif;
+}
+.content h3 {
+  width: 371.057px;
+  height: 32.06px;
+  flex-shrink: 0;
+  color: #4a4a4a;
+  font-family: "NanumSquareRound", sans-serif;
+}
+.item {
+  width: 141.418px;
+  height: 50.875px;
+  flex-shrink: 0;
+  color: #4a4a4a;
+  margin: 0;
+}
+.img {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 20px;
+}
+.button {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  background-color: #9ac87f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: #7ba066;
+}
+.mainInfo {
+  display: flex;
+  flex-direction: row;
+  padding-top: 3rem;
+  align-items: start;
+  justify-content: start;
+}
+.mainInfo h1 {
+  width: 90%;
+}
+.icon {
+  width: 80px;
+  height: 80px;
+  margin-right: 0;
+  cursor: pointer;
+}
+.percent {
+  margin-top: 10%;
+}

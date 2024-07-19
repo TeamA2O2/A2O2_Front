@@ -1,6 +1,6 @@
-"use client";
 import React, { ChangeEvent, FormEvent } from "react";
-import ImageUpload from "@/components/file/ImageUpload";
+import ImageUpload from "@/components/upload/ImageUpload";
+import styles from "./FundingForm.module.css";
 
 interface FundingFormProps {
   formData: {
@@ -12,13 +12,14 @@ interface FundingFormProps {
     image: File | null;
   };
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  onFileChange: (file: File, isValid: boolean) => void; // Adjusted type
+  onFileChange: (file: File) => void;
   onSubmit: (e: FormEvent) => void;
   placeholders: {
     title: string;
     userId: string;
     item: string;
     price: string;
+    image: string | null;
     deadline: string;
   };
 }
@@ -32,6 +33,7 @@ const FundingForm: React.FC<FundingFormProps> = ({
 }) => {
   const formatDate = (isoDate: string): string => {
     const date = new Date(isoDate);
+    if (isNaN(date.getTime())) return "";
     const year = date.getFullYear();
     let month = (1 + date.getMonth()).toString().padStart(2, "0");
     let day = date.getDate().toString().padStart(2, "0");
@@ -39,76 +41,107 @@ const FundingForm: React.FC<FundingFormProps> = ({
     return `${year}-${month}-${day}`;
   };
 
-  const handleImageInput = (id: string, file: File, isValid: boolean) => {
-    if (isValid) {
-      onFileChange(file, isValid);
-    } else {
-      console.error("선택된 파일이 유효하지 않습니다.");
-    }
+  const handleImageInput = (file: File) => {
+    onFileChange(file);
   };
 
   return (
     <form onSubmit={onSubmit}>
       <div>
-        <label>유저</label>
+        <ImageUpload
+          id="image"
+          onInput={handleImageInput}
+          placeholder={placeholders.image}
+        />
+      </div>
+
+      <div className={styles.input_div}>
+        <p className={styles.title}>유저</p>
         <input
           type="text"
           name="userId"
           value={formData.userId}
           onChange={onChange}
           placeholder={placeholders.userId}
+          className={styles.input}
           required
         />
       </div>
-      <div>
-        <label>펀딩 제목</label>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>펀딩명</p>
         <input
           type="text"
           name="title"
+          className={styles.input}
           value={formData.title}
           onChange={onChange}
           placeholder={placeholders.title}
           required
         />
       </div>
-      <div>
-        <label>상품명</label>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>상품명</p>
         <input
           type="text"
           name="item"
+          className={styles.input}
           value={formData.item}
           onChange={onChange}
           placeholder={placeholders.item}
           required
         />
       </div>
-      <div>
-        <label>가격</label>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>가격</p>
         <input
           type="number"
           name="price"
+          className={styles.input}
           value={formData.price}
           onChange={onChange}
           placeholder={placeholders.price}
           required
         />
       </div>
-      <div>
-        <label>마감 날짜</label>
+      <hr></hr>
+      <div className={styles.input_div}>
+        <p className={styles.title}>마감기한</p>
         <input
-          type="date"
+          type="text"
           name="deadline"
-          value={formatDate(formData.deadline)}
+          className={styles.input}
+          value={formData.deadline ? formatDate(formData.deadline) : ""}
           onChange={onChange}
+          onFocus={(e) => {
+            e.target.type = "date";
+          }}
+          onBlur={(e) => {
+            if (!e.target.value) {
+              e.target.type = "text";
+            }
+          }}
           placeholder={placeholders.deadline}
           required
         />
       </div>
-      <div>
-        <label>사진 업로드</label>
-        <ImageUpload id="image" onInput={handleImageInput} />
-      </div>
-      <button type="submit">게시하기</button>
+      <hr></hr>
+      <button type="submit" className={styles.button}>
+        <p
+          style={{
+            fontFamily: "NanumSquareRound, sans-serif",
+            width: "173.365px",
+            height: "46.869px",
+            flexShrink: 0,
+            color: "white",
+            fontSize: "20px",
+          }}
+        >
+          게시하기
+        </p>
+      </button>
     </form>
   );
 };

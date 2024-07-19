@@ -39,7 +39,7 @@ export default function find() {
         const data = user;
 
         try {
-            await axios.post(`https://ao-rztme.run.goorm.site/user/findPassword`, { data })
+            await axios.post(`https://ao-rztme.run.goorm.site/user/resetPassword`, { data })
                 .then((res) => {
                     if (res.status === 200) {
                         alert("비밀번호")
@@ -57,7 +57,7 @@ export default function find() {
             <div>
                 <label className="m-2">아이디찾기</label>
                 <p>
-                    <input onChange={InputData} name="email" />
+                    <input onChange={InputData} name="email"/>
                     <button onClick={FindId}>찾기</button>
                 </p>
             </div>

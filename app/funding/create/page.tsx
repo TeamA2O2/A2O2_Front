@@ -1,9 +1,9 @@
 import CreateFunding from "@/containers/funding/CreateContainer";
+import "../../globals.css";
 
 export default function create() {
   return (
-    <div>
-      <h1>펀딩 생성 페이지</h1>
+    <div style={{ maxWidth: "680px" }}>
       <CreateFunding />
     </div>
   );
