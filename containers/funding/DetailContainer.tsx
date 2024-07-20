@@ -100,7 +100,7 @@ const FundingDetailContainer = () => {
         <div className={styles.imgContainer}>
           <img className={styles.img} src={image} alt="Gift" />
         </div>
-        <div style={{ padding: "10px" }}>
+        <div style={{ padding: "5% 5% 0" }}>
           <div className={styles.mainInfo}>
             <h1>펀딩 제목 : {title}</h1>
             <Share
@@ -112,9 +112,12 @@ const FundingDetailContainer = () => {
           </div>
           <p className={styles.item}>상품명 : {item}</p>
           <hr className={styles.hr} />
-          <p>목표 금액 : {price}원</p>
-          <br></br>
-          <p>마감일 : {new Date(deadline).toLocaleDateString()}</p>
+          <p>
+            목표 금액 : {price}원 &nbsp;&nbsp;&nbsp;&nbsp;마감일 :{" "}
+            {new Date(deadline).toLocaleDateString()}
+          </p>
+          {/* <br></br>
+          <p>마감일 : {new Date(deadline).toLocaleDateString()}</p> */}
           <div>
             <PercentageCalculator productPrice={price} currentAmount={money} />
           </div>

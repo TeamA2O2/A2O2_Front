@@ -29,9 +29,9 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "space-between",
-          width: "90%",
-          marginBottom: "16px",
+          width: "100%",
+          justifyContent: "left",
+          marginBottom: "2%",
         }}
       >
         <h1
@@ -39,7 +39,8 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
             fontFamily: "NanumSquareRound, sans-serif",
             flexShrink: 0,
             margin: 0,
-            fontSize: "24px", // Adjusted for better readability on small screens
+            maxWidth: "50%",
+            fontSize: "6vw", // 퍼센트 기반 폰트 크기 조정
           }}
         >
           {percentage}%
@@ -51,7 +52,7 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
             fontFamily: "NanumSquareRound, sans-serif",
             fontWeight: "Light",
             margin: 0,
-            fontSize: "18px", // Adjusted for better readability on small screens
+            fontSize: "3.5vw", // 퍼센트 기반 폰트 크기 조정
           }}
         >
           {currentAmount}원
@@ -60,12 +61,9 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
       <ProgressBar
         completed={percentage}
         bgColor="#9AC87F"
-        height="10px"
+        height="0.5em" // 상대적인 높이로 설정
         width="100%"
         isLabelVisible={false}
-        // labelAlignment="center"
-        // labelColor="#ffffff"
-        // labelSize="16px"
       />
     </div>
   );

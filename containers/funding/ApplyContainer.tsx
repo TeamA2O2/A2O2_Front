@@ -76,46 +76,47 @@ const ApplyContainer = () => {
         closeModal={closeModal}
         message={modalMessage}
       />
-      <div className={styles.content}>
-        <form onSubmit={handleFormSubmit}>
-          <img className={styles.img} src={image} alt="Gift" />
-          <div style={{ paddingLeft: "16px", paddingRight: "16px" }}>
-            <div className={styles.mainInfo}>
-              <h1>펀딩 제목 : {title}</h1>
-            </div>
-            <p className={styles.item}>상품명 : {item}</p>
-            <hr className={styles.hr} />
-            <div className={styles.input_div}>
-              <p className={styles.title}>참여자 이름</p>
-              <input
-                type="text"
-                name="applicantName"
-                value={data.applicantName}
-                onChange={handleChange}
-                className={styles.input}
-                placeholder="펀딩에 참여하실 별명을 적어주세요."
-              />
-            </div>
-            <hr className={styles.hr} />
-            <div className={styles.input_div}>
-              <p className={styles.title}>금액</p>
-              <input
-                type="number"
-                name="price"
-                value={data.price}
-                onChange={handleChange}
-                className={styles.input}
-                placeholder=""
-              />
-            </div>
 
-            <hr className={styles.hr} />
-            <button type="submit" className={styles.button}>
-              <p>결제하기</p>
-            </button>
+      <form onSubmit={handleFormSubmit} className={styles.content}>
+        <div className={styles.imgContainer}>
+          <img className={styles.img} src={image} alt="Gift" />
+        </div>
+        <div style={{ padding: "5% 5% 0" }}>
+          <div className={styles.mainInfo}>
+            <h1>펀딩 제목 : {title}</h1>
           </div>
-        </form>
-      </div>
+          <p className={styles.item}>상품명 : {item}</p>
+          <hr className={styles.hr} style={{ marginBottom: "10%" }} />
+          <div className={styles.input_div}>
+            <p className={styles.title}>참여자 이름</p>
+            <input
+              type="text"
+              name="applicantName"
+              value={data.applicantName}
+              onChange={handleChange}
+              className={styles.input}
+              placeholder="펀딩에 참여하실 별명을 적어주세요."
+            />
+          </div>
+          <hr className={styles.hr} />
+          <div className={styles.input_div}>
+            <p className={styles.title}>금액</p>
+            <input
+              type="number"
+              name="price"
+              value={data.price}
+              onChange={handleChange}
+              className={styles.input}
+              placeholder=""
+            />
+          </div>
+
+          <hr className={styles.hr} />
+          <button type="submit" className={styles.button}>
+            <p>결제하기</p>
+          </button>
+        </div>
+      </form>
     </>
   );
 };
