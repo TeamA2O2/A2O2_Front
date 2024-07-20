@@ -3,9 +3,9 @@ import "../../globals.css";
 import Header from "@/components/header/Header";
 export default function create() {
   return (
-    <div>
+    <>
       <Header />
       <CreateFunding />
-    </div>
+    </>
   );
 }

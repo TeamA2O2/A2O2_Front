@@ -51,9 +51,11 @@ const FundingDetailContainer = () => {
           console.log("펀딩 디테일 불러오기 성공");
         } else if (response.status === 204) {
           console.log("사용자가 생성한 펀딩이 없는 경우");
+          router.back();
         }
       } catch (error) {
         console.error("Error fetching funding data:", error);
+        router.back();
       }
     };
 

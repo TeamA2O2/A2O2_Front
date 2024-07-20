@@ -86,7 +86,7 @@ const ApplyContainer = () => {
             <h1>펀딩 제목 : {title}</h1>
           </div>
           <p className={styles.item}>상품명 : {item}</p>
-          <hr className={styles.hr} style={{ marginBottom: "10%" }} />
+          <hr className={styles.hr} style={{ marginBottom: "5%" }} />
           <div className={styles.input_div}>
             <p className={styles.title}>참여자 이름</p>
             <input

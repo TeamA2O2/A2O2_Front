@@ -106,7 +106,7 @@
 .hr {
   border: 0;
   border-top: 1px solid #d4d4d4;
-  margin: 0.5rem 0; /* 상하 여백 설정 */
+  margin: 0 0 1rem 0; /* 상하 여백 설정 */
 }
 
 /* 미디어 쿼리: 아이폰 SE (375px 이하) */

@@ -2,12 +2,12 @@
 .content {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 0 auto; /* 중앙 정렬 및 상단 여백 설정 */
-  padding: 2%;
+  width: 100%; /* 기본 너비, 아이폰 XR 기준 */
+  margin: 0 auto;
+  padding: 0;
   box-sizing: border-box;
+  max-height: 100%;
 }
-
 .content h1 {
   width: 90%; /* 화면 너비의 80%로 설정 */
   height: auto;
@@ -79,8 +79,8 @@
 }
 
 .icon {
-  width: 40px; /* 아이콘 크기 설정 */
-  height: 40px;
+  width: 8%; /* 아이콘 크기 설정 */
+  height: 8%;
   cursor: pointer;
 }
 

@@ -42,7 +42,7 @@
   width: 25%; /* 기본 버튼 너비 */
   border: none;
   border-radius: 8px;
-  padding: 1% 1%;
+  padding: 1% 0;
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s;
