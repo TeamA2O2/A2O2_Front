@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 414px; /* 아이폰 XR 기준 너비 */
+  max-width: 100%; /* 아이폰 XR 기준 너비 */
   margin: 2% auto;
   padding: 16px 16px 0 16px;
   box-sizing: border-box;

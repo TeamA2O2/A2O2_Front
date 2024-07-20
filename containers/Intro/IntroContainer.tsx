@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "@/components/img/logo.svg";
+import Logo from "@/components/svg/logo.svg";
 import { useRouter } from "next/navigation";
 import styles from "./IntroContianer.module.css";
 

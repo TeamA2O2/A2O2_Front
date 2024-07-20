@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import Modal from "@/components/modal/Modal";
 import PercentageCalculator from "@/components/PercentageCalculator";
-import Share from "@/components/img/share.svg";
+import Share from "@/components/svg/share.svg";
 import styles from "./DetailContainer.module.css";
 
 interface DetailFundingProps {
@@ -76,7 +76,7 @@ const FundingDetailContainer = () => {
   const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      setModalMessage("클립보드에 링크가 복사되었습니다.");
+      setModalMessage("URL이 복사되었습니다.");
       setIsModalOpen(true);
     } catch (e) {
       setModalMessage("다시 시도해주세요");

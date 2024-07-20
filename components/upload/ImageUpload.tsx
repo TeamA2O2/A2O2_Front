@@ -1,6 +1,6 @@
 import React, { useRef, useState, ChangeEvent, useEffect } from "react";
 import "./ImageUpload.css";
-import CameraIcon from "@/components/img/camera.svg";
+import CameraIcon from "@/components/svg/camera.svg";
 interface ImageUploadProps {
   id: string;
   onInput: (file: File) => void;

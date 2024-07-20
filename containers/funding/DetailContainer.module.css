@@ -2,9 +2,9 @@
 .content {
   display: flex;
   flex-direction: column;
-  width: 414px; /* 아이폰 XR 기준의 고정 너비 */
+  width: 100%;
   margin: 0 auto; /* 중앙 정렬 및 상단 여백 설정 */
-  padding: 16px;
+  padding: 2%;
   box-sizing: border-box;
 }
 
@@ -15,14 +15,14 @@
   color: #262626;
   font-family: "NanumSquareRound", sans-serif;
   margin: 0;
-  font-size: 24px; /* 기본 폰트 크기 */
+  font-size: 1.6rem; /* 기본 폰트 크기 */
 }
 
 .content p {
   color: #4a4a4a;
   font-family: "NanumSquareRound", sans-serif;
   margin: 0;
-  font-size: 16px; /* 기본 폰트 크기 */
+  font-size: 1rem; /* 기본 폰트 크기 */
 }
 
 .item {
@@ -35,7 +35,7 @@
 
 .imgContainer {
   width: 90%;
-  height: 350px; /* 고정된 높이 설정 */
+  height: 22rem; /* 고정된 높이 설정 */
   border-radius: 20px;
   margin-bottom: 10%;
   overflow: hidden; /* 컨테이너를 벗어나는 이미지 숨기기 */
@@ -53,7 +53,7 @@
   width: 100%;
   height: auto;
   flex-shrink: 0;
-  padding: 12px;
+  padding: 5%;
   background-color: #9ac87f;
   color: white;
   border: none;
@@ -63,7 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px; /* 기본 폰트 크기 */
+  font-size: 1rem; /* 기본 폰트 크기 */
 }
 
 .button:hover {
@@ -75,7 +75,7 @@
   flex-direction: row;
   align-items: start;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .icon {
@@ -91,7 +91,7 @@
   text-align: center; /* 텍스트 중앙 정렬 */
   width: auto; /* 너비 자동 조정 */
   height: auto; /* 높이 자동 조정 */
-  font-size: 20px; /* 기본 폰트 크기 */
+  font-size: 1.2rem; /* 기본 폰트 크기 */
 }
 
 .hr {
@@ -126,7 +126,7 @@
   .button {
     padding: 10px; /* 작은 화면에서 패딩 조정 */
     font-size: 16px; /* 작은 화면에서 폰트 크기 조정 */
-    margin-top: 1rem; /* 작은 화면에서 상단 여백 조정 */
+    margin-top: 1.7rem; /* 작은 화면에서 상단 여백 조정 */
   }
 
   .button p {

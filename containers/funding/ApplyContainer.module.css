@@ -2,9 +2,9 @@
 .content {
   display: flex;
   flex-direction: column;
-  width: 414px; /* 아이폰 XR 기준의 고정 너비 */
+  width: 100%; /* 아이폰 XR 기준의 고정 너비 */
   margin: 0 auto; /* 중앙 정렬 및 상단 여백 설정 */
-  padding: 16px;
+  padding: 2%;
   box-sizing: border-box;
 }
 
@@ -13,14 +13,14 @@
   color: #262626;
   font-family: "NanumSquareRound", sans-serif;
   margin: 0 0 3% 0;
-  font-size: 24px; /* 기본 폰트 크기 */
+  font-size: 1.6rem; /* 기본 폰트 크기 */
 }
 
 .content p {
   color: #4a4a4a;
   font-family: "NanumSquareRound", sans-serif;
   margin: 0;
-  font-size: 16px; /* 기본 폰트 크기 */
+  font-size: 1rem; /* 기본 폰트 크기 */
 }
 
 .item {
@@ -31,7 +31,7 @@
 
 .imgContainer {
   width: 90%;
-  height: 350px; /* 고정된 높이 설정 */
+  height: 22rem; /* 고정된 높이 설정 */
   border-radius: 20px;
   margin-bottom: 10%;
   overflow: hidden; /* 컨테이너를 벗어나는 이미지 숨기기 */
@@ -61,13 +61,13 @@
 
 .input::placeholder {
   font-family: "NanumSquareRound", sans-serif;
-  font-size: 12px;
+  font-size: 0.8rem;
   color: #d4d4d4;
 }
 
 .button {
   width: 100%;
-  padding: 12px;
+  padding: 5%;
   background-color: #9ac87f;
   color: white;
   border: none;
@@ -96,11 +96,11 @@
   text-align: center; /* 텍스트 중앙 정렬 */
   width: auto; /* 너비 자동 조정 */
   height: auto; /* 높이 자동 조정 */
-  font-size: 20px; /* 기본 폰트 크기 */
+  font-size: 1.2rem; /* 기본 폰트 크기 */
 }
 .input_div p {
   font-family: "NanumSquareRound", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .hr {

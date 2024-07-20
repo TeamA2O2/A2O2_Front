@@ -35,7 +35,9 @@ const Modal = ({ isOpen, closeModal, message }) => {
         {message === "추천 펀딩 리스트" && (
           <ul>
             {listData.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                <p className="listText">{item}</p>
+              </li>
             ))}
           </ul>
         )}

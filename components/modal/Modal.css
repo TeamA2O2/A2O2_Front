@@ -44,7 +44,7 @@
   cursor: pointer;
   border: none;
   transition: background-color 0.3s ease;
-  font-size: 1rem; /* 버튼 텍스트 크기 조정 */
+  font-size: 0.7rem; /* 버튼 텍스트 크기 조정 */
 }
 
 .modal-button:hover {
@@ -62,9 +62,12 @@ ul {
 }
 
 li {
-  padding: 10px 15px;
+  padding: 1% 2%;
   border-bottom: 1px solid #eee;
   font-family: "NanumSquareRound", sans-serif;
+}
+.listText {
+  font-size: 0.8rem;
 }
 
 li:last-child {
