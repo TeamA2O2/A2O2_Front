@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
+import Modal from "@/components/modal/Modal";
 import PercentageCalculator from "@/components/PercentageCalculator";
 import Share from "@/components/img/share.svg";
 import styles from "./DetailContainer.module.css";
@@ -24,6 +25,8 @@ const FundingDetailContainer = () => {
   const router = useRouter();
 
   console.log("fid:", fid);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   const [fundingData, setFundingData] = useState<DetailFundingProps>({
     userId: "",
@@ -70,30 +73,57 @@ const FundingDetailContainer = () => {
     router.push(`/funding/apply?${queryParams}`);
   };
 
+  const handleCopyClipBoard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setModalMessage("클립보드에 링크가 복사되었습니다.");
+      setIsModalOpen(true);
+    } catch (e) {
+      setModalMessage("다시 시도해주세요");
+      setIsModalOpen(true);
+    }
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   const { userId, title, item, money, image, createdAt, deadline, price } =
     fundingData;
 
   return (
-    <div className={styles.content}>
-      <img className={styles.img} src={image} alt="Gift" />
-      <div style={{ padding: "10px" }}>
-        <div className={styles.mainInfo}>
-          <h1>펀딩 제목 : {title}</h1>
-          <Share className={styles.icon} />
+    <>
+      <Modal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+        message={modalMessage}
+      />
+      <div className={styles.content}>
+        <div className={styles.imgContainer}>
+          <img className={styles.img} src={image} alt="Gift" />
         </div>
-        <p className={styles.item}>상품명 : {item}</p>
-        <hr className={styles.hr} />
-        <p>목표 금액 : {price}원</p>
-        <br></br>
-        <p>마감일 : {new Date(deadline).toLocaleDateString()}</p>
-        <div>
-          <PercentageCalculator productPrice={price} currentAmount={money} />
+        <div style={{ padding: "10px" }}>
+          <div className={styles.mainInfo}>
+            <h1>펀딩 제목 : {title}</h1>
+            <Share
+              onClick={() => {
+                handleCopyClipBoard(`localhost:3000${path}`); //공유 클릭하면 복사함수 호출
+              }}
+              className={styles.icon}
+            />
+          </div>
+          <p className={styles.item}>상품명 : {item}</p>
+          <hr className={styles.hr} />
+          <p>목표 금액 : {price}원</p>
+          <br></br>
+          <p>마감일 : {new Date(deadline).toLocaleDateString()}</p>
+          <div>
+            <PercentageCalculator productPrice={price} currentAmount={money} />
+          </div>
+          <button onClick={() => updateFunding(fid)} className={styles.button}>
+            <p>펀딩하기</p>
+          </button>
         </div>
-        <button onClick={() => updateFunding(fid)} className={styles.button}>
-          <p>펀딩하기</p>
-        </button>
       </div>
-    </div>
+    </>
   );
 };
 
