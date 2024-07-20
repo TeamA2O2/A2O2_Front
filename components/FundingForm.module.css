@@ -27,7 +27,7 @@
   font-size: 1rem;
   border: 0px solid #ccc;
   border-radius: 4px;
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 100%;
   box-sizing: border-box;
   font-family: "NanumSquareRound", sans-serif;
@@ -39,7 +39,7 @@
 }
 
 .button {
-  margin-top: 20%;
+  margin-top: 8%;
   width: 100%;
   height: auto;
   flex-shrink: 0;
