@@ -29,19 +29,24 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
+  background-color: white;
   margin: 0;
   padding: 0;
   font-family: "NanumSquareRound", sans-serif;
 }
 
 .container {
-  width: 1179px;
-  height: 2556px;
+  width: 100%;
+  max-width: 414px;
+  height: 100%;
+  max-height: 896px;
   flex-shrink: 0;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 @layer utilities {
   .text-balance {

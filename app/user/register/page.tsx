@@ -70,58 +70,66 @@ export default function register() {
             console.error(error);
         }
     }
-32
+
     return (
-        <div>
-            <h2 className={styles.text}>회원가입</h2>
+        <div className={styles.asdf}>
+            <h2 className={styles.title}>회원가입</h2>
             <p className={styles.description}>서비스 이용을 위해 아래 정보를 입력해주세요</p>
             <div>
-                <div>
-                    <label className={styles.label}>이름</label>
+                <div className={styles.block}>
+                    <div>
+                        <label className={styles.label}>이름</label>
+                    </div>
+                    <div>
+                        <input
+                            onChange={InputData} name="name" required
+                            className={styles.inputs} placeholder="실명을 입력해주세요."/>
+                    </div>
                 </div>
-                <div>
-                    <input
-                        onChange={InputData} name="name" required
-                        className={styles.input} />
-                </div>
-
-                <div>
+                <div className={styles.block}>
                     <div>
                         <label className={styles.label}>아이디</label>
                     </div>
-                    <input onChange={InputData} name="id" required
-                        className={styles.input} />
-                    <button onClick={DuplicateId} className={styles.duplit}>중복확인</button>
+                    <div className={styles.id}>
+                        <input onChange={InputData} name="id" required
+                            className={styles.inputs} placeholder="아이디를 입력해주세요."/>
+                        <button onClick={DuplicateId} className={styles.duplit}>중복확인</button>
+                    </div>
                 </div>
-                <div>
-                    <label className={styles.label}>비번</label>
+                <div className={styles.block}>
+                    <div>
+                        <label className={styles.label}>비밀번호</label>
+                    </div>
+                    <div>
+                        <input onChange={InputData} name="password" required
+                            className={styles.inputs} placeholder="8자 이상의 영문, 숫자를 사용해주세요." type="password"/>
+                    </div>
+                    <div>
+                        <label className={styles.label}>비밀번호 확인</label>
+                    </div>
+                    <div>
+                        <input onChange={CheckPassword} name="passworkChek" required
+                            className={styles.inputs} placeholder="비밀번호 확인을 위해 재입력 해주세요." type="password"/>
+                        <div className={styles.description}>{pw ? <p>비밀번호가 일치합니다</p> : <p className={styles.wrongpw}>비밀번호가 일치하지 않습니다 </p>}</div>
+                    </div>
                 </div>
-                <div>
-                    <input onChange={InputData} name="password" required
-                        className={styles.input} />
+                <div className={styles.block}>
+                    <div>
+                        <label className={styles.label}>이메일</label>
+                    </div>
+                    <div>
+                        <input onChange={InputData} name="email" required
+                            className={styles.inputs} placeholder="이메일을 입력해주세요."/>
+                    </div>
                 </div>
-                <div>
-                    <label className={styles.label}>비번 확인</label>
-                </div>
-                <div>
-                    <input onChange={CheckPassword} name="passworkChek" required
-                        className={styles.input} />
-                    <div className={styles.description}>{pw ? <p>비밀번호가 일치합니다</p> : <p className="text-sm">비밀번호가 일치하지 않습니다 </p>}</div>
-                </div>
-
-                <div>
-                    <label className={styles.label}>전화번호</label>
-                </div>
-                <div>
-                    <input onChange={InputData} name="phone" required
-                        className={styles.input} />
-                </div>
-                <div>
-                    <label className={styles.label}>이메일</label>
-                </div>
-                <div>
-                    <input onChange={InputData} name="email" required
-                        className={styles.input} />
+                <div className={styles.block}>
+                    <div>
+                        <label className={styles.label}>전화번호</label>
+                    </div>
+                    <div>
+                        <input onChange={InputData} name="phone" required
+                            className={styles.inputs} placeholder="숫자만 입력해주세요."/>
+                    </div>
                 </div>
                 <button className={styles.button} onClick={RegisterUser}>회원가입</button>
             </div>
