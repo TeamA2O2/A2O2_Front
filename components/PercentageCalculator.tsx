@@ -20,7 +20,7 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
   const percentage = calculatePercentage();
 
   return (
-    <div>
+    <div style={{ width: "100%", marginTop: "20%", boxSizing: "border-box" }}>
       {/* <p>
         제품 가격: {productPrice}원, 현재 금액: {currentAmount}W
       </p> */}
@@ -29,28 +29,29 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
+          justifyContent: "space-between",
+          width: "90%",
+          marginBottom: "16px",
         }}
       >
         <h1
           style={{
             fontFamily: "NanumSquareRound, sans-serif",
-            width: "322.85px",
-            height: "84.922px",
             flexShrink: 0,
             margin: 0,
+            fontSize: "24px", // Adjusted for better readability on small screens
           }}
         >
           {percentage}%
         </h1>
         <p
           style={{
-            width: "242.921px",
-            height: "50.03px",
-            flexShrink: "0",
+            flexShrink: 0,
             color: "#4A4A4A",
             fontFamily: "NanumSquareRound, sans-serif",
             fontWeight: "Light",
             margin: 0,
+            fontSize: "18px", // Adjusted for better readability on small screens
           }}
         >
           {currentAmount}원
@@ -59,7 +60,7 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
       <ProgressBar
         completed={percentage}
         bgColor="#9AC87F"
-        height="20px"
+        height="10px"
         width="100%"
         isLabelVisible={false}
         // labelAlignment="center"

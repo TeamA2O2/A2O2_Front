@@ -10,6 +10,13 @@ const IntroContainer = () => {
   const Routing = (value: string) => {
     router.push(`/user/${value}`);
   };
+  // const userId = localStorage.getItem("Id");
+
+  // if (userId) {
+  //   // 로컬 스토리지에 userId가 있으면 메인으로
+  //   window.location.href = "/user/info";
+  //   return;
+  // }
 
   return (
     <div className={styles.content}>

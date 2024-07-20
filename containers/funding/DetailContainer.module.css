@@ -1,78 +1,90 @@
 .content {
   display: flex;
   flex-direction: column;
+  width: 414px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
 }
+
 .content h1 {
-  width: 293.26px;
-  height: 107.36px;
+  width: 80%;
+  height: auto;
   flex-shrink: 0;
   color: #262626;
   font-family: "NanumSquareRound", sans-serif;
   margin: 0;
+  font-size: 24px; /* Adjusted for better readability on small screens */
 }
+
 .content p {
-  width: 371.057px;
-  height: 32.06px;
-  flex-shrink: 0;
   color: #4a4a4a;
   font-family: "NanumSquareRound", sans-serif;
-}
-.content h3 {
-  width: 371.057px;
-  height: 32.06px;
-  flex-shrink: 0;
-  color: #4a4a4a;
-  font-family: "NanumSquareRound", sans-serif;
+  margin: 0;
+  font-size: 16px; /* 폰트 크기를 비율에 맞게 조정 */
 }
 .item {
-  width: 141.418px;
-  height: 50.875px;
+  width: 100%;
+  height: auto;
   flex-shrink: 0;
   color: #4a4a4a;
   margin: 0;
 }
+
 .img {
   width: 100%;
   height: auto;
-  flex-shrink: 0;
   border-radius: 20px;
+  margin: 0;
+  padding-bottom: 10%;
 }
+
 .button {
   width: 100%;
   height: auto;
   flex-shrink: 0;
-  padding: 0.5rem 1rem;
+  padding: 12px;
   background-color: #9ac87f;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-size: 18px; /* Adjusted for better readability on small screens */
 }
 
 .button:hover {
   background-color: #7ba066;
 }
+
 .mainInfo {
   display: flex;
   flex-direction: row;
-  padding-top: 3rem;
   align-items: start;
-  justify-content: start;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
 }
-.mainInfo h1 {
-  width: 90%;
-}
+
 .icon {
-  width: 80px;
-  height: 80px;
-  margin-right: 0;
+  width: 40px; /* Reduced size for better layout on small screens */
+  height: 40px;
   cursor: pointer;
 }
-.percent {
-  margin-top: 10%;
+.button p {
+  margin: 0; /* 기본 마진 제거 */
+  font-family: "NanumSquareRound", sans-serif; /* 폰트 패밀리 설정 */
+  color: white; /* 글자 색상 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  width: auto; /* 너비 자동 조정 */
+  height: auto; /* 높이 자동 조정 */
+  font-size: 20px; /* 폰트 크기 설정 */
+}
+.hr {
+  border: 0;
+  border-top: 1px solid #d4d4d4;
+  margin: 1rem 0;
 }

@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import axios from "axios";
 import PercentageCalculator from "@/components/PercentageCalculator";
 import Share from "@/components/img/share.svg";
 import styles from "./DetailContainer.module.css";
+
 interface DetailFundingProps {
   userId: string;
   title: string;
@@ -51,7 +51,6 @@ const FundingDetailContainer = () => {
         }
       } catch (error) {
         console.error("Error fetching funding data:", error);
-      } finally {
       }
     };
 
@@ -77,36 +76,21 @@ const FundingDetailContainer = () => {
   return (
     <div className={styles.content}>
       <img className={styles.img} src={image} alt="Gift" />
-      <div>
+      <div style={{ padding: "10px" }}>
         <div className={styles.mainInfo}>
           <h1>펀딩 제목 : {title}</h1>
-
-          {/* <p>주최자: {userId}</p> */}
           <Share className={styles.icon} />
         </div>
-        <h3 className={styles.item}>상품명 : {item}</h3>
-
-        <hr></hr>
+        <p className={styles.item}>상품명 : {item}</p>
+        <hr className={styles.hr} />
         <p>목표 금액 : {price}원</p>
-        <p>생성일 : {new Date(createdAt).toLocaleDateString()}</p>
+        <br></br>
         <p>마감일 : {new Date(deadline).toLocaleDateString()}</p>
-        <div className={styles.percent}>
+        <div>
           <PercentageCalculator productPrice={price} currentAmount={money} />
         </div>
-
         <button onClick={() => updateFunding(fid)} className={styles.button}>
-          <p
-            style={{
-              fontFamily: "NanumSquareRound, sans-serif",
-              width: "173.365px",
-              height: "46.869px",
-              flexShrink: 0,
-              color: "white",
-              fontSize: "20px",
-            }}
-          >
-            펀딩하기
-          </p>
+          <p>펀딩하기</p>
         </button>
       </div>
     </div>

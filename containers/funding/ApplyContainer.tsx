@@ -79,49 +79,41 @@ const ApplyContainer = () => {
       <div className={styles.content}>
         <form onSubmit={handleFormSubmit}>
           <img className={styles.img} src={image} alt="Gift" />
-          <div className={styles.mainInfo}>
-            <h1>펀딩 제목 : {title}</h1>
+          <div style={{ paddingLeft: "16px", paddingRight: "16px" }}>
+            <div className={styles.mainInfo}>
+              <h1>펀딩 제목 : {title}</h1>
+            </div>
+            <p className={styles.item}>상품명 : {item}</p>
+            <hr className={styles.hr} />
+            <div className={styles.input_div}>
+              <p className={styles.title}>참여자 이름</p>
+              <input
+                type="text"
+                name="applicantName"
+                value={data.applicantName}
+                onChange={handleChange}
+                className={styles.input}
+                placeholder="펀딩에 참여하실 별명을 적어주세요."
+              />
+            </div>
+            <hr className={styles.hr} />
+            <div className={styles.input_div}>
+              <p className={styles.title}>금액</p>
+              <input
+                type="number"
+                name="price"
+                value={data.price}
+                onChange={handleChange}
+                className={styles.input}
+                placeholder=""
+              />
+            </div>
+
+            <hr className={styles.hr} />
+            <button type="submit" className={styles.button}>
+              <p>결제하기</p>
+            </button>
           </div>
-          <h3 className={styles.item}>상품명 : {item}</h3>
-          <hr></hr>
-          <div className={styles.input_div}>
-            <p className={styles.title}>참여자 이름</p>
-            <input
-              type="text"
-              name="applicantName"
-              value={data.applicantName}
-              onChange={handleChange}
-              className={styles.input}
-              placeholder="펀딩에 참여하실 별명을 적어주세요."
-            />
-          </div>
-          <hr></hr>
-          <div className={styles.input_div}>
-            <p className={styles.title}>금액</p>
-            <input
-              type="number"
-              name="price"
-              value={data.price}
-              onChange={handleChange}
-              className={styles.input}
-              placeholder=""
-            />
-          </div>
-          <hr></hr>
-          <button type="submit" className={styles.button}>
-            <p
-              style={{
-                fontFamily: "NanumSquareRound, sans-serif",
-                width: "173.365px",
-                height: "46.869px",
-                flexShrink: 0,
-                color: "white",
-                fontSize: "20px",
-              }}
-            >
-              결제하기
-            </p>
-          </button>
         </form>
       </div>
     </>

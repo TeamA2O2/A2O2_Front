@@ -32,6 +32,19 @@ const FundingCreateContainer = () => {
   const [fid, setFid] = useState<string | null>(null);
 
   useEffect(() => {
+    const userId = localStorage.getItem("Id");
+
+    if (!userId) {
+      // 로컬 스토리지에 userId가 없으면 로그인 페이지로 리디렉션
+      window.location.href = "/user/login";
+      return;
+    }
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      userId,
+    }));
+
     const fetchFundingData = async () => {
       const urlParams = new URL(window.location.href);
       const fid = urlParams.searchParams.get("id");
@@ -53,7 +66,7 @@ const FundingCreateContainer = () => {
               item: data.item,
               price: data.price,
               deadline: data.deadline,
-              userId: data.userId,
+              userId: data.userId || formData.userId,
               image: data.image || null,
             });
 
@@ -107,6 +120,7 @@ const FundingCreateContainer = () => {
     data.append("price", formData.price.toString());
     data.append("deadline", formData.deadline);
     data.append("userId", formData.userId);
+
     if (formData.image) {
       data.append("image", formData.image);
     }
@@ -162,7 +176,18 @@ const FundingCreateContainer = () => {
         message={modalMessage}
       />
       <div className={styles.content}>
-        <h1>받고 싶은 선물</h1>
+        <div className={styles.header_container}>
+          <h1>받고 싶은 선물</h1>
+          <button
+            className={styles.recommend_button}
+            onClick={() => {
+              setIsModalOpen(true);
+              setModalMessage("추천 펀딩 리스트");
+            }}
+          >
+            <p>추천 선물</p>
+          </button>
+        </div>
         <p>선물 정보를 입력해주세요.</p>
         <FundingForm
           formData={formData}

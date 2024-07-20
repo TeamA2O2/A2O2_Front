@@ -54,20 +54,6 @@ const FundingForm: React.FC<FundingFormProps> = ({
           placeholder={placeholders.image}
         />
       </div>
-
-      <div className={styles.input_div}>
-        <p className={styles.title}>유저</p>
-        <input
-          type="text"
-          name="userId"
-          value={formData.userId}
-          onChange={onChange}
-          placeholder={placeholders.userId}
-          className={styles.input}
-          required
-        />
-      </div>
-      <hr></hr>
       <div className={styles.input_div}>
         <p className={styles.title}>펀딩명</p>
         <input
@@ -80,7 +66,7 @@ const FundingForm: React.FC<FundingFormProps> = ({
           required
         />
       </div>
-      <hr></hr>
+      <hr className={styles.hr}></hr>
       <div className={styles.input_div}>
         <p className={styles.title}>상품명</p>
         <input
@@ -93,7 +79,7 @@ const FundingForm: React.FC<FundingFormProps> = ({
           required
         />
       </div>
-      <hr></hr>
+      <hr className={styles.hr}></hr>
       <div className={styles.input_div}>
         <p className={styles.title}>가격</p>
         <input
@@ -106,7 +92,7 @@ const FundingForm: React.FC<FundingFormProps> = ({
           required
         />
       </div>
-      <hr></hr>
+      <hr className={styles.hr}></hr>
       <div className={styles.input_div}>
         <p className={styles.title}>마감기한</p>
         <input
@@ -127,20 +113,9 @@ const FundingForm: React.FC<FundingFormProps> = ({
           required
         />
       </div>
-      <hr></hr>
+      <hr className={styles.hr}></hr>
       <button type="submit" className={styles.button}>
-        <p
-          style={{
-            fontFamily: "NanumSquareRound, sans-serif",
-            width: "173.365px",
-            height: "46.869px",
-            flexShrink: 0,
-            color: "white",
-            fontSize: "20px",
-          }}
-        >
-          게시하기
-        </p>
+        <p style={{ color: "white" }}>게시하기</p>
       </button>
     </form>
   );
