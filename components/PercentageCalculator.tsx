@@ -40,7 +40,7 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
             flexShrink: 0,
             margin: 0,
             maxWidth: "70%",
-            fontSize: "clamp(2rem, 5vw, 4rem)",
+            fontSize: "clamp(2rem, 5vw, 2rem)",
           }}
         >
           {percentage}%
@@ -52,7 +52,7 @@ const PercentageCalculator: React.FC<PercentageCalculatorProps> = ({
             fontFamily: "NanumSquareRound, sans-serif",
             fontWeight: "Light",
             margin: 0,
-            fontSize: "clamp(1rem, 3.5vw, 2rem)",
+            fontSize: "clamp(1rem, 3.5vw, 1.5rem)",
           }}
         >
           {currentAmount}원
