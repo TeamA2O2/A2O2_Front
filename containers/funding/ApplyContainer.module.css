@@ -1,0 +1,142 @@
+/* ApplyContainer.module.css */
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* 아이폰 XR 기준의 고정 너비 */
+  margin: 0 auto; /* 중앙 정렬 및 상단 여백 설정 */
+  padding: 2%;
+  box-sizing: border-box;
+}
+
+.content h1 {
+  width: 90%; /* 화면 너비의 90%로 설정 */
+  color: #262626;
+  font-family: "NanumSquareRound", sans-serif;
+  margin: 0 0 3% 0;
+  font-size: 1.6rem; /* 기본 폰트 크기 */
+}
+
+.content p {
+  color: #4a4a4a;
+  font-family: "NanumSquareRound", sans-serif;
+  margin: 0;
+  font-size: 1rem; /* 기본 폰트 크기 */
+}
+
+.item {
+  width: 100%;
+  color: #4a4a4a;
+  margin: 0;
+}
+
+.imgContainer {
+  width: 90%;
+  height: 22rem; /* 고정된 높이 설정 */
+  border-radius: 20px;
+  margin-bottom: 10%;
+  overflow: hidden; /* 컨테이너를 벗어나는 이미지 숨기기 */
+  align-self: center;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지가 컨테이너 크기에 맞게 조정되며 비율 유지 */
+  border-radius: 20px;
+}
+
+.input {
+  border-width: 0;
+  font-size: 1rem;
+  border: 0 solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #a6acb3;
+}
+
+.input::placeholder {
+  font-family: "NanumSquareRound", sans-serif;
+  font-size: 0.8rem;
+  color: #d4d4d4;
+}
+
+.button {
+  width: 100%;
+  padding: 5%;
+  background-color: #9ac87f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 2rem; /* 상단 여백 설정 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px; /* 기본 폰트 크기 */
+}
+
+.button:hover {
+  background-color: #7ba066;
+}
+
+.input_div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.button p {
+  margin: 0; /* 기본 마진 제거 */
+  font-family: "NanumSquareRound", sans-serif; /* 폰트 패밀리 설정 */
+  color: white; /* 글자 색상 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  width: auto; /* 너비 자동 조정 */
+  height: auto; /* 높이 자동 조정 */
+  font-size: 1.2rem; /* 기본 폰트 크기 */
+}
+.input_div p {
+  font-family: "NanumSquareRound", sans-serif;
+  font-size: 1rem;
+}
+
+.hr {
+  border: 0;
+  border-top: 1px solid #d4d4d4;
+  margin: 0 0 1rem 0; /* 상하 여백 설정 */
+}
+
+/* 미디어 쿼리: 아이폰 SE (375px 이하) */
+@media (max-width: 375px) {
+  .content {
+    width: 375px; /* 작은 화면에서 너비를 100%로 설정 */
+    padding: 8px; /* 작은 화면에서 패딩 조정 */
+  }
+
+  .content h1 {
+    font-size: 20px; /* 작은 화면에서 폰트 크기 조정 */
+    margin-bottom: 1rem; /* 작은 화면에서 하단 여백 조정 */
+  }
+
+  .content p {
+    font-size: 14px; /* 작은 화면에서 폰트 크기 조정 */
+  }
+
+  .imgContainer {
+    height: 250px; /* 작은 화면에서 이미지 높이 조정 */
+    margin-bottom: 5%; /* 작은 화면에서 하단 여백 조정 */
+  }
+
+  .button {
+    padding: 10px; /* 작은 화면에서 패딩 조정 */
+    font-size: 16px; /* 작은 화면에서 폰트 크기 조정 */
+    margin-top: 1rem; /* 작은 화면에서 상단 여백 조정 */
+  }
+
+  .button p {
+    font-size: 18px; /* 작은 화면에서 폰트 크기 조정 */
+  }
+}

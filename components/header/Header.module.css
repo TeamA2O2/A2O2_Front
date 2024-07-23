@@ -1,0 +1,36 @@
+/* Header.module.css */
+
+/* 기본 헤더 스타일 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%; /* 아이폰 XR 기준 너비 */
+  margin: 2% auto;
+  padding: 16px 16px 0 16px;
+  box-sizing: border-box;
+  background-color: #ffffff; /* 헤더 배경 색상 */
+}
+
+.back {
+  cursor: pointer;
+}
+
+.headerTitle {
+  font-family: "NanumSquareRound", sans-serif;
+  font-size: 18px; /* 제목 폰트 크기 */
+  color: #262626;
+  margin: 0;
+}
+
+/* 미디어 쿼리: 아이폰 SE (375px 이하) */
+@media (max-width: 375px) {
+  .header {
+    padding: 8px; /* 작은 화면에서 패딩 조정 */
+  }
+
+  .headerTitle {
+    font-size: 16px; /* 작은 화면에서 제목 폰트 크기 조정 */
+  }
+}
