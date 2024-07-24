@@ -104,15 +104,17 @@ const FundingDetailContainer = () => {
         </div>
         <div style={{ padding: "5% 5% 0" }}>
           <div className={styles.mainInfo}>
-            <h1>펀딩 제목 : {title}</h1>
+            <h1>{title}</h1>
             <Share
               onClick={() => {
-                handleCopyClipBoard(`localhost:3000${path}`); //공유 클릭하면 복사함수 호출
+                handleCopyClipBoard(
+                  `https://a2-o2-front-five.vercel.app${path}`
+                ); //공유 클릭하면 복사함수 호출
               }}
               className={styles.icon}
             />
           </div>
-          <p className={styles.item}>상품명 : {item}</p>
+          <p className={styles.item}>{item}</p>
           <hr className={styles.hr} />
           <p>
             목표 금액 : {price}원 &nbsp;&nbsp;&nbsp;&nbsp;마감일 :{" "}
