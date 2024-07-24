@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 
-export default function info() {
+export default function Info() {
   const router = useRouter();
 
   const [list, getList] = useState([{ id: 38 }, { id: 39 }]);
@@ -15,20 +15,20 @@ export default function info() {
   const getUserFundingList = async () => {
     const data = user;
     try {
-      await fetch(`https://ao-rztme.run.goorm.site/user/getUserData`+data).then(
-        async (res) => {
-          if (res.status === 200) {
-            const data = res;
-            await setUser(data);
-            await axios.post(
-              `https://ao-rztme.run.goorm.site/finding/viewList` + data)
-              .then(async (res) => {
+      await fetch(
+        `https://ao-rztme.run.goorm.site/user/getUserData` + data
+      ).then(async (res) => {
+        if (res.status === 200) {
+          const data = res;
+          await setUser(data);
+          await axios
+            .post(`https://ao-rztme.run.goorm.site/finding/viewList` + data)
+            .then(async (res) => {
               const list = res;
-              await getList(list);
+              //await getList(list);
             });
-          }
         }
-      );
+      });
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +60,7 @@ export default function info() {
       <div>
         {list.map((item, index) => {
           return (
-            <div>
+            <div key={index}>
               <h3>{item.id}</h3>
               <h3>진행도 바</h3>
               <div>

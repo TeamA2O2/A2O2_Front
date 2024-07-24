@@ -1,5 +1,6 @@
 import React, { useRef, useState, ChangeEvent, useEffect } from "react";
 import "./ImageUpload.css";
+import Image from "next/image";
 import CameraIcon from "@/components/svg/camera.svg";
 interface ImageUploadProps {
   id: string;
@@ -53,7 +54,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       />
       <div className="image-upload" onClick={pickImageHandler}>
         <div className="image-upload__preview">
-          {previewUrl && <img src={previewUrl} alt="preview" />}
+          {previewUrl && <Image src={previewUrl} alt="preview" />}
           {!previewUrl && <div>{placeholder || <CameraIcon />}</div>}
         </div>
       </div>

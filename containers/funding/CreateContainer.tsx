@@ -13,7 +13,7 @@ const FundingCreateContainer = () => {
   const [formData, setFormData] = useState({
     title: "",
     item: "",
-    price: "",
+    price: 0,
     deadline: "",
     userId: "",
     image: null as File | null,
