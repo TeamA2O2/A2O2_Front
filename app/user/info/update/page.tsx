@@ -14,9 +14,12 @@ export default function Update() {
 
   const [pw, checkPw] = useState(false);
 
-  // useEffect(() => {
-  //     await axios.get(`https://ao-rztme.run.goorm.site/user/`)
-  // }, []);
+  useEffect(() => {
+    const userId = localStorage.getItem("Id");
+
+    axios.get(`https://ao-rztme.run.goorm.site/user/getUserData/testid2`)
+
+  },[]);
 
   const InputData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser((prev) => {
@@ -37,15 +40,15 @@ export default function Update() {
   };
 
   //회원수정
-  const RegisterUser = async () => {
+  const UpdateUser = async () => {
     const data = user;
 
     try {
       await axios
-        .post(`https://ao-rztme.run.goorm.site/user/signUp`, { data })
+        .post(`https://ao-rztme.run.goorm.site/user/editUser`, { data })
         .then((res) => {
           if (res.status === 200) {
-            alert("회원가입완료");
+            alert("회원수정완료");
           }
           console.log(res);
         });
@@ -55,19 +58,17 @@ export default function Update() {
   };
 
   return (
-    <div className="m-auto p-2">
-      <h2 className="text-xl text-green-500">회원 정보 수정</h2>
+    <div>
+      <h2>회원 정보 수정</h2>
       <div>
         <div>
-          <label className="text-xl ">이름</label>
+          <label>이름</label>
         </div>
         <div>
           <input
             onChange={InputData}
             name="name"
             placeholder="이름"
-            required
-            className="border-b-2 border-lime-200"
           />
         </div>
 
@@ -78,11 +79,8 @@ export default function Update() {
           <input
             onChange={InputData}
             name="id"
-            placeholder="아이디"
-            required
-            className="border-b-2 border-lime-200"
+            placeholder={user.id}
           />
-          {/*<button onClick={DuplicateId}>중복확인</button>*/}
         </div>
         <div>
           <label>비번</label>
@@ -132,15 +130,13 @@ export default function Update() {
         </div>
         <div>
           <input
-            onChange={InputData}
             name="email"
-            required
-            className="border-b-2 border-lime-200"
+            placeholder={user.email}
           />
         </div>
       </div>
 
-      <button onClick={RegisterUser} className="m-auto">
+      <button onClick={UpdateUser} className="m-auto">
         회원가입
       </button>
     </div>

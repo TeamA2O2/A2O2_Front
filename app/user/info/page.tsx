@@ -1,38 +1,44 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Info() {
   const router = useRouter();
 
-  const [list, getList] = useState([{ id: 38 }, { id: 39 }]);
+  //var userid = localStorage.getItem("Id")
 
-  const [user, setUser] = useState({});
+  const [list, getList] = useState([]);
 
-  //info /list 구분해서? 한번에?
-  const getUserFundingList = async () => {
-    const data = user;
-    try {
-      await fetch(
-        `https://ao-rztme.run.goorm.site/user/getUserData` + data
-      ).then(async (res) => {
-        if (res.status === 200) {
-          const data = res;
-          await setUser(data);
-          await axios
-            .post(`https://ao-rztme.run.goorm.site/finding/viewList` + data)
-            .then(async (res) => {
-              const list = res;
-              //await getList(list);
-            });
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [userId, getUser] = useState({userId:"doyeon"});
+  const [isCallLists, setIsCallLists] = useState(false);
+  
+
+  useEffect(() => {
+    const data=userId;
+    const getData = async () => {
+      // await axios.get(`https://ao-rztme.run.goorm.site/user/getUserData/`+data.userId )
+      //   .then((res) => {
+      //     try {
+      //       console.log(res.data.data)
+      //       getUser(res.data.data)
+      //     } catch {
+      //       return;
+      //     }})
+      await axios.post(`https://ao-rztme.run.goorm.site/funding/viewList` , {data})
+        .then((res) => {
+          try {
+            console.log(res.data)
+            getList(res.data)
+            setIsCallLists(true)
+
+          } catch {
+            return;
+          }})
+      }
+    getData();
+    },[])
 
   //펀딩삭제
   const deleteFunding = async () => {
@@ -45,7 +51,7 @@ export default function Info() {
           }
         }
       );
-    } catch (error) {}
+    } catch (error) { }
   };
 
   //펀딩 수정페이지로 라우팅
@@ -55,13 +61,20 @@ export default function Info() {
 
   return (
     <div>
-      <h1>이름</h1>
+      <h1>{userId.userId}</h1>
       <div>이미지</div>
       <div>
-        {list.map((item, index) => {
+        {
+        (list&&list.length == 0)
+        ?
+        <div>
+          펀딩을 작성해보세요
+        </div>
+        :
+        list.map((item, index) => {
           return (
             <div key={index}>
-              <h3>{item.id}</h3>
+              <h3>{item.title}</h3>
               <h3>진행도 바</h3>
               <div>
                 <button onClick={() => updateFunding(item.id)}>수정</button>
