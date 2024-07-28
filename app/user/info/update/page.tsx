@@ -17,7 +17,11 @@ export default function Update() {
   useEffect(() => {
     const userId = localStorage.getItem("Id");
 
-    axios.get(`https://ao-rztme.run.goorm.site/user/getUserData/testid2`)
+    axios.get(`https://ao-rztme.run.goorm.site/user/getUserData/doyeon`)
+    .then((res)=>{
+      console.log(res.data.data)
+      setUser(res.data.data)
+    })
 
   },[]);
 
@@ -68,7 +72,7 @@ export default function Update() {
           <input
             onChange={InputData}
             name="name"
-            placeholder="이름"
+            placeholder={user.name}
           />
         </div>
 
@@ -137,7 +141,7 @@ export default function Update() {
       </div>
 
       <button onClick={UpdateUser} className="m-auto">
-        회원가입
+        회원 수정
       </button>
     </div>
   );
