@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import styles from "./update.module.css";
 
 export default function Update() {
   const [user, setUser] = useState({
@@ -63,50 +64,52 @@ export default function Update() {
 
   return (
     <div>
-      <h2>회원 정보 수정</h2>
+      <h2 className={styles.text}>회원 정보 수정</h2>
       <div>
         <div>
-          <label>이름</label>
+          <label className={styles.label}>이름</label>
         </div>
         <div>
           <input
             onChange={InputData}
             name="name"
             placeholder={user.name}
+            className={styles.input}
           />
         </div>
 
         <div>
           <div>
-            <label className="text-xl ">아이디</label>
+            <label className={styles.label}>아이디</label>
           </div>
           <input
             onChange={InputData}
             name="id"
             placeholder={user.id}
+            className={styles.input}
           />
         </div>
         <div>
-          <label>비번</label>
+          <label className={styles.label}>비번</label>
         </div>
         <div>
           <input
             onChange={InputData}
             name="password"
             required
-            className="border-b-2 border-lime-200"
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label>비번 확인</label>
+          <label className={styles.label}>비번 확인</label>
         </div>
         <div>
           <input
             onChange={CheckPassword}
             name="passworkChek"
             required
-            className="border-b-2 border-lime-200"
+            className={styles.input}
           />
           <div>
             {pw ? (
@@ -118,29 +121,30 @@ export default function Update() {
         </div>
 
         <div>
-          <label>전화번호</label>
+          <label className={styles.label}>전화번호</label>
         </div>
         <div>
           <input
             onChange={InputData}
             name="phone"
             required
-            className="border-b-2 border-lime-200"
+            className={styles.input}
           />
         </div>
 
         <div>
-          <label>이메일</label>
+          <label className={styles.label}>이메일</label>
         </div>
         <div>
           <input
             name="email"
             placeholder={user.email}
+            className={styles.input}
           />
         </div>
       </div>
 
-      <button onClick={UpdateUser} className="m-auto">
+      <button onClick={UpdateUser} className={styles.button}>
         회원 수정
       </button>
     </div>
