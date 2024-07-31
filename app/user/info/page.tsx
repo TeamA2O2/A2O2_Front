@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import styles from "./info.module.css"
+
 export default function Info() {
   const router = useRouter();
 
@@ -59,10 +61,29 @@ export default function Info() {
     router.push(`/funding/create?id=${id}`);
   };
 
+
   return (
     <div>
-      <h1>{userId.userId}</h1>
-      <div>이미지</div>
+      <div className={styles.profileCard}>
+        <div className={styles.header}>
+          <span>마이페이지</span>
+          <span>개인정보수정</span>
+        </div>
+        <div className={styles.line1}></div>
+        <div className={styles.profileContent}>
+          <div className={styles.profileDetails}>
+            <p className={styles.name}>{userId.userId}</p>
+            <p className={styles.email}>email@email.com</p>
+          </div>
+          <img src="https://ao-rztme.run.goorm.site/images/profile_image.png" className={styles.profilePicture}></img>
+        </div>
+      </div>
+      <p className={styles.text1}>나의 펀딩 횟수</p>
+      <div className={styles.myFunding}>
+        <span className={styles.times}>24회</span>
+        <span><button className={styles.fundingBtn}>펀딩하기</button></span>
+      </div>
+      <div className={styles.line2}></div>
       <div>
         {
         (list&&list.length == 0)
@@ -73,12 +94,21 @@ export default function Info() {
         :
         list.map((item, index) => {
           return (
-            <div key={index}>
-              <h3>{item.title}</h3>
-              <h3>진행도 바</h3>
-              <div>
-                <button onClick={() => updateFunding(item.id)}>수정</button>
-                <button onClick={deleteFunding}>삭제</button>
+            <div key={index} className={styles.itemContainer}>
+              <img src={item.image} className={styles.itemImg}></img>
+              <div className={styles.itemDetails}>
+                <div className={styles.titlePrice}>
+                  <p className={styles.itemTitle}>{item.title}</p>
+                  <p className={styles.itemPrice}>{item.price}원</p>
+                </div>
+                <div className={styles.itemPercent}>{((item.money / item.price)*100).toFixed(2)}%</div>
+                <div className={styles.progressContainer}>
+                  <div className={styles.progressBar} style={{ '--percent': `${(item.money/item.price)*100}%` }}></div>
+                </div>
+              </div>
+              <div className={styles.buttons}>
+                <button className={styles.editBtn} onClick={() => updateFunding(item.id)}></button>
+                <button className={styles.delBtn} onClick={deleteFunding}></button>
               </div>
             </div>
           );
