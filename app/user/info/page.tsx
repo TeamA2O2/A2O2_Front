@@ -106,7 +106,7 @@ export default function Info() {
                 </div>
                 <div className={styles.itemPercent}>{((item.money / item.price)*100).toFixed(2)}%</div>
                 <div className={styles.progressContainer}>
-                  <div className={styles.progressBar} style={{ '--percent': `${(item.money/item.price)*100}%` }}></div>
+                  <div className={styles.progressBar} style={{ width: `${(item.money/item.price)*100}%` }}></div>
                 </div>
               </div>
               <div className={styles.buttons}>
