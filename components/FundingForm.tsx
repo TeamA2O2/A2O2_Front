@@ -96,20 +96,20 @@ const FundingForm: React.FC<FundingFormProps> = ({
       <div className={styles.input_div}>
         <p className={styles.title}>마감기한</p>
         <input
-          type="text"
+          type="date"
           name="deadline"
           className={styles.input}
           value={formData.deadline ? formatDate(formData.deadline) : ""}
           onChange={onChange}
-          onFocus={(e) => {
-            e.target.type = "date";
-          }}
-          onBlur={(e) => {
-            if (!e.target.value) {
-              e.target.type = "text";
-            }
-          }}
-          placeholder={placeholders.deadline}
+          // onFocus={(e) => {
+          //   e.target.type = "date";
+          // }}
+          // onBlur={(e) => {
+          //   if (!e.target.value) {
+          //     e.target.type = "text";
+          //   }
+          // }}
+          // placeholder={placeholders.deadline}
           required
         />
       </div>
