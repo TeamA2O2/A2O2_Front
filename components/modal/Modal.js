@@ -18,7 +18,7 @@ const Modal = ({ isOpen, closeModal, message }) => {
       );
       if (response.status === 200) {
         console.log(response.data);
-        setListData(response.data);
+        setListData(response.data.data.listItem);
         console.log("추천 펀딩 리스트 불러오기 성공");
       }
     } catch (error) {
@@ -34,6 +34,7 @@ const Modal = ({ isOpen, closeModal, message }) => {
         <h2 className="modal-title">{message}</h2>
         {message === "추천 펀딩 리스트" && (
           <ul>
+            {console.log(listData)}
             {listData.map((item, index) => (
               <li key={index}>
                 <p className="listText">{item}</p>
