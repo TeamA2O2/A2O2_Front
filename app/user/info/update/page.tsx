@@ -18,7 +18,8 @@ export default function Update() {
   useEffect(() => {
     const userId = localStorage.getItem("Id");
 
-    axios.get(`https://ao-rztme.run.goorm.site/user/getUserData/doyeon`)
+
+    axios.get(`https://ao-rztme.run.goorm.site/user/getUserData/`+userId)
     .then((res)=>{
       console.log(res.data.data)
       setUser(res.data.data)

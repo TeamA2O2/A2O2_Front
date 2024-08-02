@@ -18,7 +18,7 @@ export default function Info() {
   
 
   useEffect(() => {
-    const data=userId;
+    const data=localStorage.getItem("Id");
     const getData = async () => {
       // await axios.get(`https://ao-rztme.run.goorm.site/user/getUserData/`+data.userId )
       //   .then((res) => {
@@ -61,13 +61,16 @@ export default function Info() {
     router.push(`/funding/create?id=${id}`);
   };
 
+  const updateUser = () => {
+    router.push(`/user/info/update`);
+  }
 
   return (
     <div>
       <div className={styles.profileCard}>
         <div className={styles.header}>
           <span>마이페이지</span>
-          <span>개인정보수정</span>
+          <span onClick={updateUser}>개인정보수정</span>
         </div>
         <div className={styles.line1}></div>
         <div className={styles.profileContent}>
