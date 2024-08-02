@@ -11,7 +11,7 @@ export default function Info() {
 
   //var userid = localStorage.getItem("Id")
 
-  const [list, getList] = useState([]);
+  const [list, getList] = useState<any[]>([]);
 
   const [userId, getUser] = useState({userId:"doyeon"});
   const [isCallLists, setIsCallLists] = useState(false);
