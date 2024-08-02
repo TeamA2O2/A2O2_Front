@@ -8,11 +8,11 @@ import styles from "./register.module.css";
 export default function register() {
 
     const [user, setUser] = useState({
-        name: "",
-        id: "",
-        password: "",
-        phone: "",
-        email: ""
+        name: null,
+        id: null,
+        password: null,
+        phone: null,
+        email: null
     });
 
     const [pw, checkPw] = useState(false);
