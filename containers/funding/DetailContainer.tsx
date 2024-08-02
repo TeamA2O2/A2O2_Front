@@ -107,9 +107,7 @@ const FundingDetailContainer = () => {
             <h1>{title}</h1>
             <Share
               onClick={() => {
-                handleCopyClipBoard(
-                  `https://a2-o2-front-five.vercel.app${path}`
-                ); //공유 클릭하면 복사함수 호출
+                handleCopyClipBoard(`https://a2-o2-front.vercel.app/${path}`); //공유 클릭하면 복사함수 호출
               }}
               className={styles.icon}
             />

@@ -89,6 +89,9 @@ export default function Info() {
     router.push(`/user/info/update`);
   };
 
+  const detailPage = (id: Number) => {
+    router.push(`/funding/detail/${id}`);
+  };
   return (
     <div>
       <div className={styles.profileCard}>
@@ -129,6 +132,7 @@ export default function Info() {
                 id={"itemContainer"}
                 key={index}
                 className={styles.itemContainer}
+                onClick={() => detailPage(item.id)}
               >
                 <img
                   src={`https://ao-rztme.run.goorm.site/images/${item.image}`}
