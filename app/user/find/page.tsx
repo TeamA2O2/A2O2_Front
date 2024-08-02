@@ -6,7 +6,7 @@ import axios from "axios";
 export default function Find() {
   const [user, setUser] = useState({});
 
-  const [id, getid] = useState();
+  const [id, getid] = useState(null);
 
   const InputData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUser((prev) => {
