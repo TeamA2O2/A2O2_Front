@@ -61,6 +61,10 @@ export default function Info() {
     router.push(`/funding/create?id=${id}`);
   };
 
+  const createFunding = () => {
+    router.push(`/funding/create`);
+  };
+
   const updateUser = () => {
     router.push(`/user/info/update`);
   }
@@ -84,7 +88,7 @@ export default function Info() {
       <p className={styles.text1}>나의 펀딩 횟수</p>
       <div className={styles.myFunding}>
         <span className={styles.times}>24회</span>
-        <span><button className={styles.fundingBtn}>펀딩하기</button></span>
+        <span onClick={createFunding}><button className={styles.fundingBtn}>펀딩하기</button></span>
       </div>
       <div className={styles.line2}></div>
       <div>
