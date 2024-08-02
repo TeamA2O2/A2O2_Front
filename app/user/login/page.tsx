@@ -31,10 +31,9 @@ export default function Login() {
         .then((res) => {
           if (res.status === 200) {
             alert("로그인완료");
-            localStorage.setItem("Id", JSON.stringify(user.id));
+            localStorage.setItem("Id", user.id);
             window.location.href = "/user/info";
           }
-          
         });
     } catch (error) {
       console.error(error);
