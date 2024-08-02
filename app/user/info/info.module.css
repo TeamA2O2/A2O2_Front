@@ -1,176 +1,180 @@
-.profileCard{
-    width: 20rem;
-    height: 8rem;
-    margin-top: 1.5rem;
-    border: none;
-    border-radius:10px;
-    color: #E2EFDA;
-    background-color: #9AC87F;
+.profileCard {
+  width: 20rem;
+  height: 8rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  color: #e2efda;
+  background-color: #9ac87f;
 }
 
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 1rem 0 1rem;
-    font-size: 10px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 0 1rem;
+  font-size: 10px;
 }
 
-.line1{
-    height: 1px;
-    margin: 0.3rem 1rem 0 1rem;
-    background-color: #E2EFDA;
+.line1 {
+  height: 1px;
+  margin: 0.3rem 1rem 0 1rem;
+  background-color: #e2efda;
 }
 
-.profileContent{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.profileContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.profilePicture{
-    width: 4rem;
-    height: auto;
-    margin-top: 1rem;
-    margin-right: 1.2rem;
-    background-color: #e0e0e0;
-    border-radius: 50%;
+.profilePicture {
+  width: 4rem;
+  height: 4rem;
+  margin-top: 1rem;
+  margin-right: 1.2rem;
+  background-color: #e0e0e0;
+  border-radius: 50%;
 }
 
-.profileDetails{
-    margin-left: 1rem;
+.profileDetails {
+  margin-left: 1rem;
 }
 
-.name{
-    color: white;
-    font-size: 18px;
-    margin: 0;
+.name {
+  color: white;
+  font-size: 18px;
+  margin: 0;
 }
-.email{
-    font-size: 10px;
-    font-weight: 300;
-    margin: 0;
-}
-
-.text1{
-    margin-left: 0.8rem;
-    color: #4A4A4A;
-    font-family: "NanumSquareRound", sans-serif;
+.email {
+  font-size: 10px;
+  font-weight: 300;
+  margin: 0;
 }
 
-.times{
-    font-weight: bold;
-    color: black;
-    font-size: 30px;
-    font-family: "NanumSquareRound", sans-serif;
+.text1 {
+  margin-left: 0.8rem;
+  color: #4a4a4a;
+  font-family: "NanumSquareRound", sans-serif;
 }
 
-.fundingBtn{
-    border: none;
-    width: 5rem;
-    height:2rem;
-    border-radius:4px;
-    background-color: #9AC87F;
-    color: #FFFFFF;
-    font-size: 0.8rem;
-    font-weight: lighter;
-    /* letter-spacing: 0.1rem; */
-    /* margin:1rem 0 1rem 0; */
-    font-family: "NanumSquareRound", sans-serif;
+.times {
+  font-weight: bold;
+  color: black;
+  font-size: 30px;
+  font-family: "NanumSquareRound", sans-serif;
 }
 
-.myFunding{
-    margin-left: 0.8rem;
-    margin-right: 0.8rem;
-    display: flex;
-    justify-content: space-between;
+.fundingBtn {
+  border: none;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 4px;
+  background-color: #9ac87f;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: lighter;
+  /* letter-spacing: 0.1rem; */
+  /* margin:1rem 0 1rem 0; */
+  cursor: pointer;
+  font-family: "NanumSquareRound", sans-serif;
 }
 
-.line2{
-    height: 1px;
-    margin: 1rem 0.2rem 0 0.2rem;
-    background-color: #d4d4d4;
+.myFunding {
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.itemContainer{
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
+.line2 {
+  height: 1px;
+  margin: 1rem 0.2rem 0 0.2rem;
+  background-color: #d4d4d4;
 }
 
-.itemImg{
-    width: 4rem;
-    height: 4rem;
-    border-radius: 0.7rem;
-    background-color: #e0e0e0;
+.itemContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.itemDetails{
-    flex: 1;
-    margin: 1rem 1rem 1rem 1rem;
+.itemImg {
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.7rem;
+  background-color: #e0e0e0;
 }
 
-.titlePrice{
-    display: flex;
-    align-items: center;
+.itemDetails {
+  flex: 1;
+  margin: 1rem 1rem 1rem 1rem;
 }
 
-.itemTitle{
-    color: black;
-    font-size: 10px;
-    margin: 0;
-    font-family: "NanumSquareRound", sans-serif;
+.titlePrice {
+  display: flex;
+  align-items: center;
 }
 
-.itemPrice{
-    color: #858585;
-    font-size: 10px;
-    font-weight: lighter;
-    margin: 5px;
-    font-family: "NanumSquareRound", sans-serif;
+.itemTitle {
+  color: black;
+  font-size: 10px;
+  margin: 0;
+  font-family: "NanumSquareRound", sans-serif;
 }
 
-.itemPercent{
-    color: black;
-    margin-bottom: 0.3rem;
-    font-weight: bold;
-    font-family: "NanumSquareRound", sans-serif;
+.itemPrice {
+  color: #858585;
+  font-size: 10px;
+  font-weight: lighter;
+  margin: 5px;
+  font-family: "NanumSquareRound", sans-serif;
 }
 
-.progressContainer{
-    position: relative;
-    height: 2px;
-    background-color: #e0e0e0;
-    border-radius: 1rem;
-}
-.progressBar{
-    height: 100%;
-    //width: var(--percent);
-    background-color: #9AC87F;
-    border-radius: 1rem;
+.itemPercent {
+  color: black;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  font-family: "NanumSquareRound", sans-serif;
 }
 
-.buttons{
-    display: flex;
-    flex-direction: column;
+.progressContainer {
+  position: relative;
+  height: 2px;
+  background-color: #e0e0e0;
+  border-radius: 1rem;
+}
+.progressBar {
+  height: 100%;
+  width: var(--percent);
+  background-color: #9ac87f;
+  border-radius: 1rem;
 }
 
-.editBtn{
-    width: 1rem;
-    height: 1rem;
-    border: none;
-    background-image: url('https://ao-rztme.run.goorm.site/images/edit.png');
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    margin-bottom: 1rem;
+.buttons {
+  display: flex;
+  flex-direction: column;
 }
 
-.delBtn{
-    width: 1rem;
-    height: 1rem;
-    border: none;
-    background-image: url('https://ao-rztme.run.goorm.site/images/del.png');
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
+.editBtn {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  background-image: url("https://ao-rztme.run.goorm.site/images/edit.png");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.delBtn {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  background-image: url("https://ao-rztme.run.goorm.site/images/del.png");
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
 }
