@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import FundingForm from "@/components/FundingForm";
 import axios from "axios";
@@ -170,6 +171,12 @@ const FundingCreateContainer = () => {
 
   return (
     <>
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"
+        />
+      </Head>
       <Modal
         isOpen={isModalOpen}
         closeModal={closeModal}
